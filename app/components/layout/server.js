@@ -20,6 +20,10 @@ app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(express.static(path.join('public')));
 
+app.use((_req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
+
 // CSRF protection
 app.use((req, res, next) => {
   if (/json/.test(req.get('Accept'))) {
