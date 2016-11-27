@@ -3,7 +3,6 @@ import React from 'react';
 import Showfeed from './Showfeed';
 
 const Calendar = React.createClass({
-
   render() {
     return (
 
@@ -11,7 +10,6 @@ const Calendar = React.createClass({
         <Month />
         <Showfeed />
       </div>
-
     );
   }
 });
