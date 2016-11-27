@@ -10,6 +10,7 @@ const App = React.createClass({
       <div>
         <Header />
         <Main />
+        <div>Hello World</div>
       </div>
 
     );

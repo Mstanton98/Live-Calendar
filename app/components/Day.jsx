@@ -6,7 +6,6 @@ const Day = React.createClass({
     return (
 
       <div>
-        <Day />
       </div>
 
     );
