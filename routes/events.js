@@ -37,19 +37,19 @@ router.get('/events', authorize, (_req, res, next) => {
   });
 });
 
-router.get('/atendees', authorize, (req, res, next) => {
+router.post('/atendees', authorize, (req, res, next) => {
   const { userId } = req.token;
   const eventId = req.body.eventId;
 
   knex('user_events')
     .innerJoin('users', 'users.id', 'user_events.user_id')
     .where('event_id', eventId)
-    .andWhere('going', true)
+    .andWhere('going', false)
     .then((rows) => {
       if (!rows) {
         return next(boom.create(400, 'something went wrong.'));
       }
-      
+
       res.send(rows);
     })
     .catch((err) => {
