@@ -13,26 +13,25 @@ const port = process.env.PORT || 8000;
 const server = require('http').createServer(app);
 const path = require('path');
 
+const events = require('./routes/events');
+const users = require('./routes/users');
+const token = require('./routes/token');
+
 app.disable('x-powered-by');
 
 app.use(morgan('dev'));
 app.use(bodyParser.json());
 app.use(cookieParser());
+
+app.use(events);
+app.use(users);
+app.use(token);
+
 app.use(express.static(path.join('public')));
 
 app.use((_req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
-
-// CSRF protection
-app.use((req, res, next) => {
-  if (/json/.test(req.get('Accept'))) {
-    return next();
-  }
-
-  res.sendStatus(406);
-});
-
 
 app.use((_req, res) => {
   res.sendStatus(404);

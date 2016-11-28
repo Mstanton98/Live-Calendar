@@ -12,7 +12,7 @@ const validations = require('../validations/token');
 const router = express.Router();
 
 router.post('/token', ev(validations.post), (req, res, next) => {
-  const { password, username } = req.body;
+  const { username, password } = req.body;
   let user;
 
   knex('users')
