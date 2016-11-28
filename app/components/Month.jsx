@@ -33,12 +33,13 @@ const Month = React.createClass({
       <div id="month">
         <BigCalendar
           defaultDate={new Date(2015, 3, 12)}
-          defaultView="week"
+          defaultView="month"
           endAccessor="endDate"
           events={this.state.events}
           startAccessor="startDate"
           step={15}
           timeslots={8}
+          views={['month']}
         />
          <Days />
       </div>
