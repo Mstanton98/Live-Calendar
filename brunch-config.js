@@ -19,6 +19,7 @@ module.exports = {
 
   npm: {
     styles: {
+      'react-big-calendar': ['lib/css/react-big-calendar.css']
     }
   },
 
