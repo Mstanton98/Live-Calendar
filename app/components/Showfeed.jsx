@@ -7,7 +7,9 @@ const Showfeed = React.createClass({
     return (
 
       <div>
-        <Shows />
+        <Shows
+          events={this.props.events}
+       />
       </div>
 
     );
