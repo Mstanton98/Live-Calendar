@@ -1,0 +1,9 @@
+div#month {
+  display: inline-block;
+  float: right;
+  width:  100%;
+  height: 500px;
+}
+div#show {
+  width: 100%;
+}
