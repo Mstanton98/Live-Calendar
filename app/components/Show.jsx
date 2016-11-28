@@ -5,25 +5,27 @@ const Show = React.createClass({
   render() {
     return (
 
-      <div id="show">
-        {/* <div className="container"> */}
-          <div className="row">
-            <div className="col ">
-              <div className="card white">
-                <div className="card-content black-text">
-                  <p className="card-title">Band Name</p>
-                  <hr />
-                  <span className="sub-title">Venue Name</span>
-                  <p></p>
-                  <p></p>
-                  <p></p>
-                </div>
-
-              </div>
+        <div id="show">
+          <div className="card white">
+            <div className="card-show-date">21</div>
+            <div className="card-content black-text">
+              <span className="band-title">Band Names</span>
+              <hr />
+              <span className="venue-title">Venue Name</span>
+              <span className="date-time-title">11/28/16 9:00PM</span>
+            </div>
+            <div>
+              <span className="going-title">Going </span>
+              <span className="going-title">Maybe</span>
+            </div>
+            <div>
+            <button className="ticket-link flat-btn">Tickets</button>
+            </div>
+             <div>
+             <a className="venue-link">www.amazingplacetoseeshows.com</a>
             </div>
           </div>
-        {/* </div> */}
-      </div>
+        </div>
 
     );
   }

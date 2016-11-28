@@ -13,10 +13,10 @@ const Calendar = React.createClass({
         {/* <div className="container"> */}
           <div className="row">
 
-            <div className="col l3">
+            <div className="col l4">
               <Showfeed />
             </div>
-            <div className="col l9">
+            <div className="col l8">
               <Month />
             </div>
           </div>
