@@ -23,3 +23,61 @@ const authorize = function(req, res, next) {
     next();
   });
 };
+
+router.get('/followingList', authorize, (req, res, next) => {
+  const { userId } = req.token;
+
+  knex('user_relationships')
+    .innerJoin('users', 'users.id', 'user_relationships.following_id')
+    .where('user_relationships.user_id', userId)
+    .then((rows) => {
+      if (!rows) {
+        return next(boom.create(400, 'something went wrong.'));
+      }
+
+      res.send(rows);
+    })
+    .catch((err) => {
+      next(err);
+    });
+});
+
+router.post('/relationships', authorize, (req, res, next) => {
+  const { userId } = req.token;
+  const newFollow = { userId: userId, followingId: req.body.followingId };
+
+  knex('user_relationships')
+    .insert(decamelizeKeys(newFollow))
+    .then((row) => {
+      if (!row) {
+        return next(boom.create(400, 'something went wrong.'));
+      }
+
+      res.send(true);
+    })
+    .catch((err) => {
+      next(err);
+    });
+});
+
+router.delete('/relationships', authorize, (req, res, next) => {
+  const { userId } = req.token;
+  const followId = req.body.followingId;
+
+  knex('user_relationships')
+    .del()
+    .where('user_id', userId)
+    .andWhere('following_id', followId)
+    .then((row) => {
+      if (!row) {
+        return next(boom.create(400, 'something went wrong.'));
+      }
+
+      res.send(true);
+    })
+    .catch((err) => {
+      next(err);
+    });
+});
+
+module.exports = router;

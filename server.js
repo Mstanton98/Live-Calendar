@@ -16,6 +16,7 @@ const path = require('path');
 const events = require('./routes/events');
 const users = require('./routes/users');
 const token = require('./routes/token');
+const relationships = require('./routes/relationships');
 
 app.disable('x-powered-by');
 
@@ -26,6 +27,7 @@ app.use(cookieParser());
 app.use(events);
 app.use(users);
 app.use(token);
+app.use(relationships);
 
 app.use(express.static(path.join('public')));
 
