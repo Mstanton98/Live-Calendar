@@ -24,7 +24,6 @@ const Main = React.createClass({
   },
 
   render() {
-    console.log(this.state);
     return (
       <div>
         <Calendar
