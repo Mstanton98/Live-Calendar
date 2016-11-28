@@ -63,6 +63,7 @@ router.post('/relationships', authorize, (req, res, next) => {
 router.delete('/relationships', authorize, (req, res, next) => {
   const { userId } = req.token;
   const followId = req.body.followingId;
+  const follow = {};
 
   knex('user_relationships')
     .del()
@@ -70,10 +71,18 @@ router.delete('/relationships', authorize, (req, res, next) => {
     .andWhere('following_id', followId)
     .then((row) => {
       if (!row) {
-        return next(boom.create(400, 'something went wrong.'));
+        return next(boom.create(404, 'Follow not found.'));
       }
 
-      res.send(true);
+      follow.userId = userId;
+      follow.followId = followId;
+
+      return knex('user_relationships')
+        .where('user_id', userId)
+        .andWhere('following_id', followId)
+    })
+    .then(() => {
+      res.send(camelizeKeys(follow))
     })
     .catch((err) => {
       next(err);

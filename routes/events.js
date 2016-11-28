@@ -44,7 +44,7 @@ router.post('/atendees', authorize, (req, res, next) => {
   knex('user_events')
     .innerJoin('users', 'users.id', 'user_events.user_id')
     .where('event_id', eventId)
-    .andWhere('going', false)
+    .andWhere('going', true)
     .then((rows) => {
       if (!rows) {
         return next(boom.create(400, 'something went wrong.'));
@@ -126,19 +126,27 @@ router.post('/events', authorize, (req, res, next) => {
 
 router.delete('/events', authorize, (req, res, next) => {
   const { userId } = req.token;
-
   const eventId = req.body.eventId;
+  const event = {};
 
   knex('user_events')
-    .del()
     .where('user_id', userId)
     .andWhere('event_id', eventId)
     .then((row) => {
       if (!row) {
-        return next(boom.create(400, 'something went wrong.'));
+        return next(boom.create(404, 'Event not found.'));
       }
 
-      res.send(true);
+      event.userId = userId;
+      event.eventId = eventId;
+
+      return knex('user_events')
+        .del()
+        .where('event_id', eventId)
+        .andWhere('user_id', userId)
+    })
+    .then(() => {
+      res.send(camelizeKeys(event));
     })
     .catch((err) => {
       next(err);
