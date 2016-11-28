@@ -40,7 +40,9 @@ const Calendar = React.createClass({
 
       <div>
         <Month />
-        <Showfeed />
+        <Showfeed
+          events={this.props.events}
+        />
         <BigCalendar
           defaultDate={new Date(2015, 3, 12)}
           defaultView="week"
