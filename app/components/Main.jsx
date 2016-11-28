@@ -1,3 +1,5 @@
+import { BrowserRouter } from 'react-router';
+import { Match } from 'react-router';
 import Calendar from './Calendar';
 import axios from 'axios';
 import React from 'react';
@@ -24,15 +26,26 @@ const Main = React.createClass({
   },
 
   render() {
-    return (
-      <div>
-        <Calendar
-          events={this.state.events}
-       />
-        <Signup />
-        <UserDash />
-      </div>
 
+    return (
+      <BrowserRouter>
+        <div>
+          <Match pattern="/" exactly render={
+              () =>
+                <Calendar
+                  events={this.state.events}
+          />
+          }/>
+          <Match pattern="/Signup" exactly render={
+              () =>
+                <Signup />
+          }/>
+          <Match pattern="/UserDash" exactly render={
+              () =>
+                <UserDash />
+          }/>
+        </div>
+       </BrowserRouter>
     );
   }
 });
