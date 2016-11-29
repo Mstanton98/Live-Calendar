@@ -9,7 +9,9 @@ const Auth = React.createClass({
   userLogin(user) {
     axios.post('/token', user)
       .then((res) => {
-        window.location.pathname = '/';
+        if (res) {
+          window.location.pathname = '/';
+        }
       })
       .catch((err) => {
         console.log(err);
