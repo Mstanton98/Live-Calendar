@@ -19,7 +19,7 @@ router.post('/users', ev(validations.post), (req, res, next) => {
     .where('email', email)
     .then((row) => {
       if (row.length) {
-        return next(boom.create(400, 'Invalid username or password.'));
+        return next(boom.create(400, 'Invalid username, email or password.'));
       }
     });
 

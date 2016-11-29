@@ -1,5 +1,7 @@
 import { BrowserRouter } from 'react-router';
 import { Match } from 'react-router';
+import Router from 'react-router/BrowserRouter'
+import Redirect from 'react-router/Redirect'
 import Calendar from './Calendar';
 import axios from 'axios';
 import React from 'react';
@@ -22,7 +24,33 @@ const Main = React.createClass({
       })
       .catch((err) => {
         this.setState({loadErr: err});
+      });
+  },
+
+  userSignup(user) {
+    axios.post('/users', user)
+      .then((res) => {
+        if (res.username === user.username) {
+          axios.post('/token', {
+            username: user.username,
+            password: user.password
+          })
+          .then((response) => {
+            if (response) {
+              router.transitionTo('/');
+            }
+            else {
+              return Materialize.toast('There was an error, please try again.', 4000);
+            }
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+        }
       })
+      .catch((err) => {
+        console.log(err);
+      });
   },
 
   render() {
@@ -34,11 +62,13 @@ const Main = React.createClass({
               () =>
                 <Calendar
                   events={this.state.events}
-          />
+                />
           }/>
           <Match pattern="/Signup" exactly render={
               () =>
-                <Signup />
+                <Signup
+                  signup={this.userSignup}
+                />
           }/>
           <Match pattern="/UserDash" exactly render={
               () =>
