@@ -3,9 +3,9 @@
 }
 div#month {
   display: inline-block;
-  float: right;
-  width:  95%;
-  height: 700px;
+  /*float: right;*/
+  width: 66vw;
+  height: 66vh;
 }
 div#show {
   text-align: center;
