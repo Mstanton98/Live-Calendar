@@ -7,7 +7,7 @@ const Show = React.createClass({
 
         <div id="show">
           <div className="card white">
-            <div className="card-show-date">21</div>
+            {/* <div className="card-show-date">21</div> */}
             <div className="card-content black-text">
               <span className="band-title">Band Names</span>
               <hr />

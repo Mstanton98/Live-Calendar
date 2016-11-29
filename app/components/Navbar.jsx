@@ -1,23 +1,24 @@
-import Login from './Login';
+import { Link, Match } from 'react-router';
+import Auth from './Auth';
+import Calendar from './Main';
 import React from 'react';
 
 const Navbar = React.createClass({
 
   render() {
     return (
-
-      <div>
-        <nav>
-          <div className="nav-wrapper black">
-            <a href="#" className="brand-logo">Live! Calendar</a>
-            <ul className="right hide-on-med-and-down">
-               <li><a href="#">SignUp</a></li>
-            </ul>
-          </div>
-        </nav>
-        <Login />
-      </div>
-
+        <div>
+          <nav>
+            <div className="nav-wrapper black">
+              <ul role="nav">
+               <li className="brand-logo left">
+                 <Link to="/">Live!</Link></li>
+                <li className="right"><Link to="/Auth">Login </Link></li>
+                <li className="right"><Link to="/Auth">Sign Up</Link></li>
+              </ul>
+            </div>
+          </nav>
+        </div>
     );
   }
 });
