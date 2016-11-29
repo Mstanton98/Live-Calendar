@@ -29,7 +29,7 @@ const Main = React.createClass({
 
     return (
         <div>
-          <Match pattern="/" exactly render={
+          <Match pattern="/Calendar" exactly render={
               () =>
                 <Calendar
                   events={this.state.events}
