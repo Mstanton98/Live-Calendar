@@ -12,15 +12,15 @@ const validations = require('../validations/token');
 const router = express.Router();
 
 router.post('/token', ev(validations.post), (req, res, next) => {
-  const { username, password } = req.body;
+  const { email, password } = req.body;
   let user;
 
   knex('users')
-    .where('username', username)
+    .where('email', email)
     .first()
     .then((row) => {
       if (!row) {
-        return boom.create(400, 'Bad username or password');
+        return boom.create(400, 'Bad email or password');
       }
 
       user = camelizeKeys(row);
@@ -35,7 +35,7 @@ router.post('/token', ev(validations.post), (req, res, next) => {
         { userId: user.id },
         process.env.JWT_SECRET,
         { expiresIn: '14 days' },
-        { username: username });
+        { email: email });
 
       res.cookie('token', token, {
         httpOnly: true,
@@ -46,7 +46,7 @@ router.post('/token', ev(validations.post), (req, res, next) => {
       res.send(user);
     })
     .catch(bcrypt.MISMATCH_ERROR, () => {
-      return boom.create(400, 'Bad username or password');
+      return boom.create(400, 'Bad email or password');
     })
     .catch((err) => {
       next(err);

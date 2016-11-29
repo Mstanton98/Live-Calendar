@@ -4,8 +4,9 @@ const Joi = require('joi');
 
 module.exports.post = {
   body: {
-    username: Joi.string()
-      .label('Username')
+    email: Joi.string()
+      .label('Email')
+      .email()
       .required()
       .min(0)
       .trim(),

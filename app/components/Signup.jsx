@@ -32,7 +32,6 @@ const Signup = React.createClass({
             <div className="row">
               <div className="input-field col s8">
                 <input id="first_name"
-                  placeholder="Enter First Name"
                   type="text"
                   onChange={this.handleChange}
                   value={this.state.firstName}
@@ -42,7 +41,6 @@ const Signup = React.createClass({
               </div>
               <div className="input-field col s8">
                 <input id="last_name"
-                  placeholder="Enter Last Name"
                   type="text"
                   onChange={this.handleChange}
                   value={this.state.lastName}
@@ -52,7 +50,6 @@ const Signup = React.createClass({
               </div>
               <div className="input-field col s8">
                 <input id="username"
-                  placeholder="Enter User Name"
                   type="text"
                   onChange={this.handleChange}
                   value={this.state.username}

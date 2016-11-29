@@ -11,17 +11,17 @@ const Calendar = React.createClass({
     return (
       <div id="calendar">
         {/* <div className="container"> */}
-          <div className="row">
-
-            <div className="col l4">
-              <Showfeed
-                events={this.props.events}
-             />
-            </div>
-            <div className="col l8">
-              <Month />
-            </div>
+        <div className="row">
+          
+          <div className="col l4">
+            <Showfeed
+              events={this.props.events}
+            />
           </div>
+          <div className="col l8">
+            <Month />
+          </div>
+        </div>
         {/* </div> */}
       </div>
     );
