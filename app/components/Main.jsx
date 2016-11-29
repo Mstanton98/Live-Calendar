@@ -1,10 +1,9 @@
-import { BrowserRouter } from 'react-router';
+// import { BrowserRouter } from 'react-router';
 import { Match } from 'react-router';
 import Calendar from './Calendar';
 import axios from 'axios';
 import Auth from './Auth';
 import React from 'react';
-
 import UserDash from './UserDash';
 
 const Main = React.createClass({
@@ -29,7 +28,6 @@ const Main = React.createClass({
   render() {
 
     return (
-      <BrowserRouter>
         <div>
           <Match pattern="/" exactly render={
               () =>
@@ -47,7 +45,6 @@ const Main = React.createClass({
                 <UserDash />
           }/>
         </div>
-       </BrowserRouter>
     );
   }
 });
