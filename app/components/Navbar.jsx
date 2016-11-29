@@ -15,7 +15,6 @@ const Navbar = React.createClass({
             </ul>
           </div>
         </nav>
-        <Login />
       </div>
 
     );

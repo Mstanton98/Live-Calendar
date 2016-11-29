@@ -2,8 +2,9 @@ import { BrowserRouter } from 'react-router';
 import { Match } from 'react-router';
 import Calendar from './Calendar';
 import axios from 'axios';
+import Auth from './Auth';
 import React from 'react';
-import Signup from './Signup';
+
 import UserDash from './UserDash';
 
 const Main = React.createClass({
@@ -36,9 +37,10 @@ const Main = React.createClass({
                   events={this.state.events}
           />
           }/>
-          <Match pattern="/Signup" exactly render={
+          <Match pattern="/Auth" exactly render={
               () =>
-                <Signup />
+              <Auth />
+
           }/>
           <Match pattern="/UserDash" exactly render={
               () =>
