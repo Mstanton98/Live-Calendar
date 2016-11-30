@@ -21,6 +21,7 @@ const Auth = React.createClass({
   userSignup(user) {
     let userUsername = user.username;
     let userPassword = user.password;
+
     axios.post('/users', user)
       .then((res) => {
         if (res.data.username === userUsername) {
