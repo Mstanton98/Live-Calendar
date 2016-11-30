@@ -26,6 +26,7 @@ const UserDash = React.createClass({
     return (
 
       <div id="userDash">
+       <div className="container">
         {/* Drawer / Sidebar */}
       <div>
         <RaisedButton
@@ -53,28 +54,84 @@ const UserDash = React.createClass({
         {/* End Drawer / Sidebar */}
 
         {/* Card */}
-        <div>
+        <div id="user-main-dash">
+          <div className="row ud-row-one">
+            <div className="six columns">
+          <Card>
+            <CardHeader
+              title="Attending"
+              actAsExpander={true}
+              showExpandableButton={true}
+            />
+          <CardText expandable={true}>
+            Show Data Here
+          </CardText>
+          <CardActions>
+            <FlatButton label="Action1" />
+            <FlatButton label="Action2" />
+          </CardActions>
+          </Card>
+          </div>
+
+          <div className="six columns">
         <Card>
-         <CardHeader
-           title="Attending"
-           actAsExpander={true}
-           showExpandableButton={true}
-         />
-         <CardText expandable={true}>
-           Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-           Donec mattis pretium massa. Aliquam erat volutpat. Nulla facilisi.
-           Donec vulputate interdum sollicitudin. Nunc lacinia auctor quam sed pellentesque.
-           Aliquam dui mauris, mattis quis lacus id, pellentesque lobortis odio.
-         </CardText>
-         <CardActions>
-           <FlatButton label="Action1" />
-           <FlatButton label="Action2" />
-         </CardActions>
-         </Card>
-         </div>
-      {/* End Card */}
+          <CardHeader
+            title="Maybes"
+            actAsExpander={true}
+            showExpandableButton={true}
+          />
+        <CardText expandable={true}>
+          Show Data Here
+        </CardText>
+        <CardActions>
+          <FlatButton label="Action1" />
+          <FlatButton label="Action2" />
+        </CardActions>
+        </Card>
+        </div>
+        </div>
+
+        <div className="row ud-row-two">
+          <div className="six columns">
+        <Card>
+          <CardHeader
+            title="Suggestions"
+            actAsExpander={true}
+            showExpandableButton={true}
+          />
+        <CardText expandable={true}>
+          Show Data Here
+        </CardText>
+        <CardActions>
+          <FlatButton label="Action1" />
+          <FlatButton label="Action2" />
+        </CardActions>
+        </Card>
+        </div>
+
+        <div className="six columns">
+      <Card>
+        <CardHeader
+          title="Attended"
+          actAsExpander={true}
+          showExpandableButton={true}
+        />
+      <CardText expandable={true}>
+        Show Data Here
+      </CardText>
+      <CardActions>
+        <FlatButton label="Action1" />
+        <FlatButton label="Action2" />
+      </CardActions>
+      </Card>
+      </div>
       </div>
 
+
+        </div>
+        {/* End Card */}
+       </div>
+      </div>
     );
   }
 });

@@ -28,9 +28,9 @@ const Signup = React.createClass({
       <div id="sign-up" >
         <div className="container">
           <h3>SignUp</h3>
-          <form className="col s12" onSubmit={this.handleSubmit}>
+          <form onSubmit={this.handleSubmit}>
             <div className="row">
-              <div className="input-field col s8">
+              <div className="input-field twelve columns">
                 <input id="first_name"
                   type="text"
                   onChange={this.handleChange}
@@ -39,7 +39,7 @@ const Signup = React.createClass({
                 />
                 <label>First Name</label>
               </div>
-              <div className="input-field col s8">
+              <div className="input-field twelve columns">
                 <input id="last_name"
                   type="text"
                   onChange={this.handleChange}
@@ -48,7 +48,7 @@ const Signup = React.createClass({
                 />
                 <label>Last Name</label>
               </div>
-              <div className="input-field col s8">
+              <div className="input-field twelve columns">
                 <input id="username"
                   type="text"
                   onChange={this.handleChange}
@@ -60,7 +60,7 @@ const Signup = React.createClass({
             </div>
             <div className="row">
 
-              <div className="input-field inline col s8">
+              <div className="input-field inline twelve columns">
                 <input id="email"
                   type="email"
                   onChange={this.handleChange}
@@ -70,7 +70,7 @@ const Signup = React.createClass({
                 <label>Email</label>
               </div>
 
-              <div className="input-field col s8">
+              <div className="input-field twelve columns">
                 <label>Password</label>
                 <input id="password"
                   type="password"
@@ -80,7 +80,10 @@ const Signup = React.createClass({
                 />
               </div>
             </div>
-            <button className="btn waves-effect waves-light" type="submit" name="action">
+            <button
+              className="button"
+              type="submit"
+              name="action">
               Submit
             </button>
 

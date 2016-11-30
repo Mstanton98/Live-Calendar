@@ -10,7 +10,7 @@ const Login = React.createClass({
 
   handleSubmit(event) {
     event.preventDefault();
-    
+
     return this.props.login(this.state);
   },
 
@@ -24,34 +24,50 @@ const Login = React.createClass({
     return (
       <div className="container">
         <h3>Login</h3>
+
+
         <form onSubmit={this.handleSubmit}>
-          <div className="row">
-            <div className="input-field col s8">
+        <div className="row">
+
+          <div className="twelve columns">
+            <div className="input-field">
+              <label
+                data-error="wrong"
+                data-success="right"
+              >
+              Email</label>
               <input id="email"
                 name="email"
                 type="email"
                 value={this.state.email}
                 onChange={this.handleChange}
               />
-              <label data-error="wrong" data-success="right">
-                Email
-              </label>
-            </div>
-            <div className="input-field col s8">
-              <input id="password"
-                name="password"
-                type="password"
-                value={this.state.password}
-                onChange={this.handleChange}
-              />
-              <label >Password</label>
-            </div>
           </div>
-          <button className="btn waves-effect waves-light" type="submit" name="action">
-            Submit
-          </button>
+        </div>
+
+        <div className="twelve columns">
+          <div className="input-field">
+            <label >Password</label>
+            <input
+              id="password"
+              name="password"
+              type="password"
+              value={this.state.password}
+              onChange={this.handleChange}
+            />
+          </div>
+        </div>
+
+        <button
+          className="button"
+          type="submit"
+          name="action">
+        Submit
+        </button>
+        </div>
         </form>
-      </div>
+
+        </div>
 
     );
   }
