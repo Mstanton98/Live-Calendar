@@ -6,7 +6,7 @@ const UserDash = React.createClass({
   render() {
     return (
 
-      <div>
+      <div id="userDash">
         <Users />
       </div>
 
