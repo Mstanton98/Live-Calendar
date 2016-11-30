@@ -61,17 +61,3 @@ const Navbar = React.createClass({
 });
 
 export default Navbar;
-
-//
-//   <div>
-//   <nav>
-//   <div className="nav-wrapper black">
-//     <ul role="nav">
-//      <li className="brand-logo left">
-//        <Link to="/">Live!</Link></li>
-//       <li className="right"><Link to="/Auth">Login </Link></li>
-//       <li className="right"><Link to="/Auth">Sign Up</Link></li>
-//     </ul>
-//   </div>
-// </nav>
-// </div>

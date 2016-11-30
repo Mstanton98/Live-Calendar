@@ -2,15 +2,16 @@
   box-sizing: border-box;
 }
 div#month {
+  margin:auto;
   display: inline-block;
   /*float: right;*/
-  width: 66vw;
+  width: 69vw;
   height: 66vh;
 }
-div#show {
+div#shows {
   text-align: center;
-  margin: auto;
-  width: inherit;
+  /*margin: auto;*/
+  /*width: inherit;*/
 }
 span.date-time-title{
   display: inline-block;

@@ -10,18 +10,20 @@ const Calendar = React.createClass({
   render() {
     return (
       <div id="calendar">
+        <div className="container">
           <div className="row">
-            <div className="col l3 m4 s12">
+            <div className="twelve columns">
               <Showfeed
                 events={this.props.events}
              />
             </div>
-            <div className="col l9 m4 s12">
+            <div className="twelve columns">
               <Month
                 events={this.props.events}
              />
             </div>
           </div>
+         </div>
       </div>
     );
   }

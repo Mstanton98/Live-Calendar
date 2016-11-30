@@ -4,22 +4,23 @@ import { List, ListItem } from 'material-ui/List';
 import Divider from 'material-ui/Divider';
 import TextField from 'material-ui/TextField';
 import FlatButton from 'material-ui/FlatButton';
-import {black400, grey500, grey200, blue500} from 'material-ui/styles/colors';
+import {black400, grey500, grey100, blue500} from 'material-ui/styles/colors';
 
 const styles = {
   button: {
-    backgroundColor: grey200,
+    backgroundColor: grey100,
     color: black400
   },
   searchbox: {
-    marginLeft: 20
+    marginLeft: 20,
+    marginBottom: 10
   },
   floatingLabelStyle: {
-    fontSize: 20,
-    color: grey200
+    fontSize: 16,
+    color: blue500
   },
   floatingLabelFocusStyle: {
-    color: grey500
+    color: grey100
   }
 };
 
@@ -28,7 +29,7 @@ const Users = React.createClass({
   render() {
     return (
 
-      <div id="users">
+      <div id="users" style={styles.container} >
       <List>
       <div style={styles.searchbox}>
       <ListItem primaryText="Users" />
