@@ -31,6 +31,7 @@ const UserDash = React.createClass({
         <RaisedButton
           label="Users Dock"
           onTouchTap={this.handleToggle}
+          onClick={this.props.getFollowing}
         />
         <Drawer
           docked={false}
@@ -38,7 +39,13 @@ const UserDash = React.createClass({
           open={this.state.open}
           onRequestChange={(open) => this.setState({open})}
         >
-        <Users />
+        <Users
+          following={this.props.following}
+          deleteFollowing={this.props.deleteFollowing}
+          getUserName={this.props.getUserName}
+          followUser={this.props.followUser}
+          userSearch={this.props.userSearch}
+        />
           <MenuItem onTouchTap={this.handleClose}>Menu Item</MenuItem>
           <MenuItem onTouchTap={this.handleClose}>Menu Item 2</MenuItem>
         </Drawer>

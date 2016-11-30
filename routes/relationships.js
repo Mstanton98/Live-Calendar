@@ -34,8 +34,13 @@ router.get('/followingList', authorize, (req, res, next) => {
       if (!rows) {
         return next(boom.create(400, 'something went wrong.'));
       }
+      const camelRow = camelizeKeys(rows);
 
-      res.send(rows);
+      for (let i = 0; i < camelRow.length; i++) {
+        delete camelRow[i].hashedPassword;
+      }
+
+      res.send(camelRow);
     })
     .catch((err) => {
       next(err);
@@ -44,13 +49,13 @@ router.get('/followingList', authorize, (req, res, next) => {
 
 router.post('/relationships', authorize, (req, res, next) => {
   const { userId } = req.token;
-  const newFollow = { userId: userId, followingId: req.body.followingId };
+  const newFollow = { userId: userId, followingId: req.body.data.follow };
 
   knex('user_relationships')
     .insert(decamelizeKeys(newFollow))
     .then((row) => {
       if (!row) {
-        return next(boom.create(400, 'something went wrong.'));
+        return next(boom.create(404, 'User not found.'));
       }
 
       res.send(true);
@@ -66,7 +71,6 @@ router.delete('/relationships', authorize, (req, res, next) => {
   const follow = {};
 
   knex('user_relationships')
-    .del()
     .where('user_id', userId)
     .andWhere('following_id', followId)
     .then((row) => {
@@ -78,6 +82,7 @@ router.delete('/relationships', authorize, (req, res, next) => {
       follow.followId = followId;
 
       return knex('user_relationships')
+        .del()
         .where('user_id', userId)
         .andWhere('following_id', followId)
     })

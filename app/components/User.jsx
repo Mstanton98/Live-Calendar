@@ -3,14 +3,6 @@ import List from 'material-ui/List/List';
 import ListItem from 'material-ui/List/ListItem';
 import Chip from 'material-ui/Chip';
 
-function handleRequestDelete() {
-  alert('Delete yourself.');
-}
-
-function handleTouchTap() {
-  alert('Do you mind?');
-}
-
 const styles = {
   chip: {
     margin: 0,
@@ -24,6 +16,15 @@ const styles = {
 };
 
 const User = React.createClass({
+  handleRequestDelete() {
+    const followingId = this.props.user.id;
+
+    this.props.deleteFollowing(followingId);
+  },
+
+  handleTouchTap() {
+    alert('Do you mind?');
+  },
 
   render() {
     return (
@@ -33,11 +34,12 @@ const User = React.createClass({
        <List>
         <ListItem>
           <Chip
-          onRequestDelete={handleRequestDelete}
-          onTouchTap={handleTouchTap}
+          onRequestDelete={this.handleRequestDelete}
+          onTouchTap={this.handleTouchTap}
           style={styles.chip}
           >
-          User Name Here
+
+          {this.props.user.username}
           </Chip>
 
         </ListItem>

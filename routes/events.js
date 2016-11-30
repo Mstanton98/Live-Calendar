@@ -27,7 +27,7 @@ const authorize = function(req, res, next) {
 router.get('/events', authorize, (_req, res, next) => {
   const date = moment().format();
 
-  request(`http://api.jambase.com/events?zipCode=98034&radius=50&startDate=${date}&page=0&api_key=43ehdm6jvxd5a7fb9xk8wm44`, (err, response, body) => {
+  request(`http://api.jambase.com/events?zipCode=98034&radius=50&startDate=${date}&page=0&api_key=qhesfx3e4k7j7f8fvcshfjmv`, (err, response, body) => {
     if (err) {
       return next(boom.create(400, 'Bad Request'));
     }
@@ -49,8 +49,9 @@ router.post('/atendees', authorize, (req, res, next) => {
       if (!rows) {
         return next(boom.create(400, 'something went wrong.'));
       }
+      const camelRows = camelizeKeys(rows);
 
-      res.send(rows);
+      res.send(camelRows);
     })
     .catch((err) => {
       next(err);
@@ -63,7 +64,6 @@ router.get('/going', authorize, (req, res, next) => {
   knex('user_events')
     .where('user_id', userId)
     .andWhere('going', true)
-    .andWhere('maybe', false)
     .then((rows) => {
       if (!rows) {
         return next(boom.create(400, 'something went wrong.'));
@@ -83,7 +83,6 @@ router.get('/maybe', authorize, (req, res, next) => {
   knex('user_events')
     .where('user_id', userId)
     .andWhere('maybe', true)
-    .andWhere('going', false)
     .then((rows) => {
       if (!rows) {
         return next(boom.create(400, 'something went wrong.'));
@@ -114,7 +113,6 @@ router.post('/events', authorize, (req, res, next) => {
     .where('user_id', userId)
     .andWhere('event_id', insertEvent.eventId)
     .then((rows) => {
-      console.log(rows);
       if (rows.length > 0) {
         return next(boom.create(400, 'Event already exists.'))
       }

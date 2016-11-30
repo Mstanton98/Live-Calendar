@@ -12,6 +12,8 @@ const Main = React.createClass({
     return {
       events: [],
       todaysEvents: [],
+      following: [],
+      userSearch: [],
       loadErr: false
     }
   },
@@ -60,11 +62,56 @@ const Main = React.createClass({
   postEvent(event) {
     axios.post('/events', event)
       .then((res) => {
-          console.log('Event Posted!');
+        console.log('Event Posted!');
       })
       .catch((err) => {
-        console.error(error);
+        console.log(err);
+      });
+  },
+
+  getFollowing() {
+    axios.get('/followingList')
+      .then((res) => {
+
+        this.setState({ following: res.data })
       })
+      .catch((err) => {
+        console.log(err);
+      });
+  },
+
+  deleteFollowing(followingId) {
+    axios.delete('/relationships', {data: {followingId}})
+      .then((res) => {
+        this.getFollowing();
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  },
+
+  getUserName(name) {
+    const username = { username: name };
+    axios.post('/username', username)
+      .then((res) => {
+
+        this.setState({ userSearch: res.data });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  },
+
+  followUser(follow) {
+    axios.post('/relationships', {data: {follow}})
+      .then((res) => {
+
+        this.getFollowing();
+        this.setState({ userSearch: [] })
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   },
 
   render() {
@@ -86,7 +133,14 @@ const Main = React.createClass({
           }/>
           <Match pattern="/UserDash" exactly render={
               () =>
-                <UserDash />
+                <UserDash
+                  getUserName={this.getUserName}
+                  following={this.state.following}
+                  getFollowing={this.getFollowing}
+                  deleteFollowing={this.deleteFollowing}
+                  userSearch={this.state.userSearch}
+                  followUser={this.followUser}
+               />
           }/>
         </div>
     );

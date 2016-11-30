@@ -19,14 +19,14 @@ const Auth = React.createClass({
   },
 
   userSignup(user) {
-    let userUsername = user.username;
+    let userEmail = user.email;
     let userPassword = user.password;
 
     axios.post('/users', user)
       .then((res) => {
-        if (res.data.username === userUsername) {
+        if (res.data.email === userEmail) {
           axios.post('/token', {
-            username: userUsername,
+            email: userEmail,
             password: userPassword
           })
           .then((response) => {

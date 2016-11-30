@@ -26,10 +26,10 @@ const authorize = function(req, res, next) {
 
 router.post('/username', authorize, (req, res, next) => {
   const { userId } = req.token;
-  const username = req.body.username;
+  const username = req.body.username.searchText;
 
   knex('users')
-    .where('username', username)
+    .where({username: username})
     .then((row) => {
 
       const camelRow = camelizeKeys(row[0]);
