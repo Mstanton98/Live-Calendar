@@ -8,9 +8,44 @@ const express = require('express');
 const knex = require('../knex');
 const { camelizeKeys, decamelizeKeys } = require('humps');
 const ev = require('express-validation');
+const jwt = require('jsonwebtoken');
 const validations = require('../validations/users');
 
 const router = express.Router();
+
+const authorize = function(req, res, next) {
+  jwt.verify(req.cookies.token, process.env.JWT_SECRET, (err, decoded) => {
+    if (err) {
+      return next(boom.create(401, 'Unauthorized'));
+    }
+
+    req.token = decoded;
+    next();
+  });
+};
+
+router.post('/username', authorize, (req, res, next) => {
+  const { userId } = req.token;
+  const username = req.body.username;
+
+  knex('users')
+    .where('username', username)
+    .then((row) => {
+
+      const camelRow = camelizeKeys(row[0]);
+      const user = {
+        firstName: camelRow.firstName,
+        lastName: camelRow.lastName,
+        username: camelRow.username,
+        userId: camelRow.id
+      }
+
+      res.send(user);
+    })
+    .catch((err) => {
+      next(err);
+    });
+});
 
 router.post('/users', ev(validations.post), (req, res, next) => {
   const { firstName, lastName, username, email, password } = req.body;

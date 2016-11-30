@@ -6,25 +6,25 @@ import FlatButton from 'material-ui/FlatButton';
 const Shows = React.createClass({
 
   render() {
-    return (
-
-      <div id="shows">
+    return <div>
       <Card>
         <CardHeader
           title="Today's Shows"
           actAsExpander={true}
           showExpandableButton={true}
         />
-      <CardText
-        expandable={true}
-      >
-      <Show />
-      </CardText>
-      </Card>
+        <CardText expandable={true}>
+        {this.props.todaysEvents.map((event, index) => {
+          return <div id="shows" key={index}>
+                <Show
+                  event={event}
+                />
+          </div>
+          })}
+        </CardText>
+        </Card>
       </div>
+    }
+  });
 
-    );
-  }
-});
-
-export default Shows;
+  export default Shows;

@@ -13,7 +13,7 @@ const Calendar = React.createClass({
           <div className="row">
             <div className="col l3 m4 s12">
               <Showfeed
-                events={this.props.events}
+                todaysEvents={this.props.todaysEvents}
              />
             </div>
             <div className="col l9 m4 s12">

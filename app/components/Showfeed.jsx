@@ -10,7 +10,7 @@ const Showfeed = React.createClass({
 
       <div id="Showfeed">
         <Shows
-          events={this.props.events}
+          todaysEvents={this.props.todaysEvents}
        />
 
       </div>

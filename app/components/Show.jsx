@@ -10,17 +10,17 @@ const Show = React.createClass({
         <div id="show">
         <Card>
         <CardHeader
-          title="Band Name"
-          subtitle="Venue Name"
+          title={this.props.event.artist}
+          subtitle={this.props.event.venue}
           actAsExpander={true}
           showExpandableButton={true}
         />
         <CardText expandable={true}>
         <div className="card-content black-text">
-          <div className="date-time-title">11/28/16 9:00PM</div>
+          <div className="date-time-title">{this.props.event.date}</div>
         </div>
         <div className="card-action">
-          <button className="ticket-link flat-btn">Tickets</button>
+          <FlatButton label="Tickets" href={this.props.event.ticketUrl} />
         </div>
         </CardText>
         <CardActions>
