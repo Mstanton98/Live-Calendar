@@ -17,6 +17,7 @@ const Shows = React.createClass({
         {this.props.todaysEvents.map((event, index) => {
           return <div id="shows" key={index}>
                 <Show
+                  postEvent={this.props.postEvent}
                   event={event}
                 />
           </div>

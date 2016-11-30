@@ -46,9 +46,8 @@ const Main = React.createClass({
           if (singleEvent.date === exactDate) {
             todaysEvents.push(singleEvent);
           }
-          else {
-            newEvents.push(singleEvent);
-          }
+
+          newEvents.push(singleEvent);
         }
 
         this.setState({ events: newEvents, todaysEvents: todaysEvents });
@@ -58,6 +57,16 @@ const Main = React.createClass({
       });
   },
 
+  postEvent(event) {
+    axios.post('/events', event)
+      .then((res) => {
+          console.log('Event Posted!');
+      })
+      .catch((err) => {
+        console.error(error);
+      })
+  },
+
   render() {
     return (
         <div>
@@ -65,6 +74,7 @@ const Main = React.createClass({
               () =>
                 <Calendar
                   events={this.state.events}
+                  postEvent={this.postEvent}
                   todaysEvents={this.state.todaysEvents}
                 />
           }/>

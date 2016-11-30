@@ -29,8 +29,8 @@ const Month = React.createClass({
   },
 
   handleSelectSlot(obj) {
-    console.log('this works!')
-    console.log(obj)
+    console.log('this works!');
+    console.log(obj);
   },
 
   render() {

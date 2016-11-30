@@ -100,7 +100,7 @@ router.get('/maybe', authorize, (req, res, next) => {
 router.post('/events', authorize, (req, res, next) => {
   const { userId } = req.token;
 
-  const insertEvent = {
+  let insertEvent = {
     userId: userId,
     going: req.body.going,
     maybe: req.body.maybe,
@@ -111,13 +111,24 @@ router.post('/events', authorize, (req, res, next) => {
   };
 
   knex('user_events')
-    .insert(decamelizeKeys(insertEvent))
-    .then((row) => {
-      if (!row) {
-        return next(boom.create(400, 'something went wrong.'));
+    .where('user_id', userId)
+    .andWhere('event_id', insertEvent.eventId)
+    .then((rows) => {
+      console.log(rows);
+      if (rows.length > 0) {
+        return next(boom.create(400, 'Event already exists.'))
       }
+      else {
+        return knex('user_events')
+        .insert(decamelizeKeys(insertEvent))
+        .then((row) => {
+          if (!row) {
+            return next(boom.create(400, 'something went wrong.'));
+          }
 
-      res.send(true);
+          res.send(true);
+        })
+      }
     })
     .catch((err) => {
       next(err);
