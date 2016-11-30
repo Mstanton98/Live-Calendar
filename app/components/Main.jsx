@@ -17,8 +17,25 @@ const Main = React.createClass({
   componentDidMount() {
     axios.get('/events')
       .then((res) => {
+        const events = res.data.Events
+        let newEvents = [];
+
         console.log(res.data.Events);
-        this.setState({ events: res.data.Events })
+        for (let i = 0; i < events.length; i++) {
+          const singleEvent = {
+            id: events[i].Id,
+            title: `${events[i].Artists[0].Name} @ ${events[i].Venue.Name}`,
+            venue: events[i].Venue.Name,
+            ticketUrl: events[i].TicketUrl,
+            venueUrl: events[i].Venue.Url,
+            allDay: true,
+            start: new Date(events[i].Date)
+          };
+          console.log(singleEvent);
+          newEvents.push(singleEvent);
+        }
+
+        this.setState({ events: newEvents })
       })
       .catch((err) => {
         this.setState({loadErr: err});
@@ -26,7 +43,6 @@ const Main = React.createClass({
   },
 
   render() {
-
     return (
         <div>
           <Match pattern="/Calendar" exactly render={

@@ -8,7 +8,6 @@ BigCalendar.momentLocalizer(moment);
 const Month = React.createClass({
   getInitialState() {
     return {
-      culture: 'en',
       events: [{
         title: 'All Day Event',
         start: new Date(2015, 3, 0),
@@ -28,22 +27,24 @@ const Month = React.createClass({
     };
   },
 
+  componentDidMount() {
+    BigCalendar.momentLocalizer(moment);
+  },
+
   render() {
     return (
 
       <div id="month">
         <BigCalendar
-          culture={this.state.culture}
           defaultDate={new Date()}
           defaultView="month"
           endAccessor="endDate"
-          events={this.state.events}
+          events={this.props.events}
           startAccessor="startDate"
           step={15}
           timeslots={8}
           views={['month']}
         />
-         <Days />
       </div>
 
     );

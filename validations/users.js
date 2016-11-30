@@ -18,7 +18,8 @@ module.exports.post = {
       .label('User Name')
       .required()
       .trim()
-      .min(1),
+      .min(1)
+      .max(25),
     email: Joi.string()
       .label('Email')
       .required()
