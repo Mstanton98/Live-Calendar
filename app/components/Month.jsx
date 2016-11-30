@@ -10,25 +10,27 @@ const Month = React.createClass({
     return {
       events: [{
         title: 'All Day Event',
-        start: new Date(2015, 3, 0),
-        end: new Date(2015, 3, 0)
+        start: new Date(2016, 11, 29),
+        end: new Date(2016, 11, 29)
       },
         {
           title: 'All Day Event',
-          start: new Date(2015, 3, 0),
-          end: new Date(2015, 3, 0)
+          start: new Date(2016, 11, 29),
+          end: new Date(2016, 11, 29)
         },
         {
           title: 'All Day Event',
-          start: new Date(2015, 3, 0),
-          end: new Date(2015, 3, 0)
+          start: new Date(2016, 11, 29),
+          end: new Date(2016, 11, 29)
         }
+
       ]
     };
   },
 
-  componentDidMount() {
-    BigCalendar.momentLocalizer(moment);
+  handleSelectSlot(obj) {
+    console.log('this works!')
+    console.log(obj)
   },
 
   render() {
@@ -39,7 +41,9 @@ const Month = React.createClass({
           defaultDate={new Date()}
           defaultView="month"
           endAccessor="endDate"
-          events={this.props.events}
+          events={this.state.events}
+          onSelectSlot={this.handleSelectSlot}
+          selectable={true}
           startAccessor="startDate"
           step={15}
           timeslots={8}
