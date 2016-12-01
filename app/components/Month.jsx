@@ -18,7 +18,7 @@ const Month = React.createClass({
       events: [
     {
       "Id": 2854803,
-      "Date": "2016-12-01T20:30:00",
+      "Date": "2016-12-02T20:30:00",
       "Venue": {
         "Id": 158984,
         "Name": "Capps Club",
@@ -43,7 +43,7 @@ const Month = React.createClass({
     },
     {
       "Id": 2828236,
-      "Date": "2016-12-01T21:00:00",
+      "Date": "2016-12-02T21:00:00",
       "Venue": {
         "Id": 79954,
         "Name": "The Funhouse",
@@ -68,7 +68,7 @@ const Month = React.createClass({
     },
     {
       "Id": 2860741,
-      "Date": "2016-12-01T21:00:00",
+      "Date": "2016-12-02T21:00:00",
       "Venue": {
         "Id": 43043,
         "Name": "High Dive",

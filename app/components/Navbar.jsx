@@ -11,11 +11,12 @@ import MenuItem from 'material-ui/MenuItem';
 import FlatButton from 'material-ui/FlatButton';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 import NavigationClose from 'material-ui/svg-icons/navigation/close';
-import {black400, grey500, grey100, blue500} from 'material-ui/styles/colors';
+import {black400, grey500, grey100, grey900
+} from 'material-ui/styles/colors';
 
 const styles = {
   navbar:  {
-    backgroundColor: grey500
+    backgroundColor: grey900
   }
 };
 
@@ -30,9 +31,8 @@ class Login extends Component {
 }
 
 const Logged = (props) => (
-  <div style={styles.navbar}>
+  <div>
   <IconMenu
-
     {...props}
     iconButtonElement={
       <IconButton><MoreVertIcon /></IconButton>
@@ -62,6 +62,7 @@ const Navbar = React.createClass({
     return (
         <div>
         <AppBar
+          style={styles.navbar}
           title="Live!"
           iconElementRight={this.state.logged ? <Logged /> : <Login />}
         />
