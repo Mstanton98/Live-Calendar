@@ -18,6 +18,7 @@ const Calendar = React.createClass({
             </div>
             <div className="twelve columns">
               <Month
+                postEvent={this.props.postEvent}
                 events={this.props.events}
              />
             </div>

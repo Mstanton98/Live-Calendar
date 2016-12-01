@@ -3,6 +3,33 @@ import {Card, CardActions, CardHeader, CardText} from 'material-ui/Card';
 import FlatButton from 'material-ui/FlatButton';
 
 const Day = React.createClass({
+  handleClickGoing() {
+    const event = this.props.event;
+    const goingEventData = {
+      going: true,
+      maybe: false,
+      artistName: event.artist,
+      venueName: event.venue,
+      eventDate: event.start,
+      eventId: event.id
+    };
+
+    return this.props.postEvent(goingEventData);
+  },
+
+  handleClickMaybe() {
+    const event = this.props.event;
+    const maybeEventData = {
+      going: false,
+      maybe: true,
+      artistName: event.artist,
+      venueName: event.venue,
+      eventDate: event.start,
+      eventId: event.id
+    };
+
+    return this.props.postEvent(maybeEventData);
+  },
 
   render() {
     return (
