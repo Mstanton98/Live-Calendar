@@ -1,4 +1,27 @@
 import React from 'react';
+import { white, red100, red200, red300, grey100, grey500, grey900 } from 'material-ui/styles/colors';
+
+const styles = {
+  signup: {
+    position: 'relative',
+    height: '50%',
+    lineHeight: '50%',
+    backgroundColor: red100,
+    borderRadius: 10,
+    margin: 'auto',
+    color: red200
+  },
+  input: {
+    padding: 10,
+    display: 'block',
+    margin: 'auto'
+  },
+  submit: {
+    display: 'block',
+    backgroundColor: red200,
+    color: red300
+  }
+};
 
 const Login = React.createClass({
   getInitialState() {
@@ -22,36 +45,50 @@ const Login = React.createClass({
 
   render() {
     return (
-      <div className="container">
-        <h3>Login</h3>
+      <div id="login" className="ten columns offset-by-four">
+      <div className="five columns" style={styles.signup}>
         <form onSubmit={this.handleSubmit}>
           <div className="row">
-            <div className="input-field col s8">
-              <input id="email"
+            <div className="twelve columns">
+            <label
+              className="six columns offset-by-three"
+              data-error="wrong"
+              data-success="right"> Email
+            </label>
+              <input
+                className="six columns offset-by-three"
+                id="email"
                 name="email"
                 type="email"
                 value={this.state.email}
                 onChange={this.handleChange}
               />
-              <label data-error="wrong" data-success="right">
-                Email
-              </label>
+
             </div>
-            <div className="input-field col s8">
-              <input id="password"
+            <div className="twelve columns">
+            <label className="six columns offset-by-three" >Password</label>
+              <input
+                className="six columns offset-by-three"
+                id="password"
                 name="password"
                 type="password"
                 value={this.state.password}
                 onChange={this.handleChange}
               />
-              <label >Password</label>
             </div>
           </div>
-          <button className="btn waves-effect waves-light" type="submit" name="action">
+          <div className="six columns offset-by-three" ></div>
+          <button
+            style={styles.submit}
+            className="button six columns offset-by-three"
+            type="submit"
+            name="action" >
             Submit
           </button>
         </form>
       </div>
+ </div>
+
 
     );
   }

@@ -1,4 +1,27 @@
 import React from 'react';
+import { white, red100, red200, red300, grey100, grey500, grey900 } from 'material-ui/styles/colors';
+
+const styles = {
+  signup: {
+    position: 'relative',
+    height: '50%',
+    lineHeight: '50%',
+    backgroundColor: red100,
+    borderRadius: 10,
+    margin: 'auto',
+    color: red200
+  },
+  input: {
+    padding: 10,
+    display: 'block',
+    margin: 'auto'
+  },
+  submit: {
+    display: 'block',
+    backgroundColor: red200,
+    color: red300
+  }
+};
 
 const Signup = React.createClass({
   getInitialState() {
@@ -25,65 +48,83 @@ const Signup = React.createClass({
   render() {
     return (
 
-      <div id="sign-up" >
-        <div className="container">
-          <h3>SignUp</h3>
-          <form className="col s12" onSubmit={this.handleSubmit}>
+      <div id="sign-up" className="ten columns offset-by-four">
+        <div className="five columns" style={styles.signup}>
+          <form onSubmit={this.handleSubmit}>
             <div className="row">
-              <div className="input-field col s8">
-                <input id="first_name"
+              <div
+                className="twelve columns"
+                style={styles.input}>
+                <label className="six columns offset-by-three">First Name</label>
+                <input
+                  className="input-field six columns offset-by-three"
+                  id="first_name"
                   type="text"
                   onChange={this.handleChange}
                   value={this.state.firstName}
                   name="firstName"
                 />
-                <label>First Name</label>
               </div>
-              <div className="input-field col s8">
-                <input id="last_name"
+              <div className="twelve columns">
+                <label className="six columns offset-by-three">Last Name</label>
+                <input
+                  className="input-field six columns offset-by-three"
+                  id="last_name"
                   type="text"
                   onChange={this.handleChange}
                   value={this.state.lastName}
                   name="lastName"
                 />
-                <label>Last Name</label>
+
               </div>
-              <div className="input-field col s8">
-                <input id="username"
+              <div className="twelve columns">
+                <label className="six columns offset-by-three">Username</label>
+                <input
+                  className="input-field six columns offset-by-three"
+                  id="username"
                   type="text"
                   onChange={this.handleChange}
                   value={this.state.username}
                   name="username"
                 />
-                <label>Username</label>
+
               </div>
             </div>
             <div className="row">
 
-              <div className="input-field inline col s8">
-                <input id="email"
+              <div className="twelve columns">
+                <label className="six columns offset-by-three">Email</label>
+                <input
+                  className="input-field six columns offset-by-three"
+                  id="email"
                   type="email"
                   onChange={this.handleChange}
                   value={this.state.email}
                   name="email"
                 />
-                <label>Email</label>
+
               </div>
 
-              <div className="input-field col s8">
-                <label>Password</label>
-                <input id="password"
+              <div className="twelve columns">
+                <label className="six columns offset-by-three">Password</label>
+                <input
+                  className="input-field six columns offset-by-three"
+                  id="password"
                   type="password"
                   onChange={this.handleChange}
                   value={this.state.password}
                   name="password"
                 />
               </div>
-            </div>
-            <button className="btn waves-effect waves-light" type="submit" name="action">
+            <div className="six columns offset-by-three" ></div>
+            <button
+              style={styles.submit}
+              className="button six columns offset-by-three"
+              type="submit"
+              name="action" >
               Submit
             </button>
-
+            </div>
           </form>
         </div>
       </div>

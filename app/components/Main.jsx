@@ -24,7 +24,84 @@ const Main = React.createClass({
   componentDidMount() {
     axios.get('/events')
       .then((res) => {
-        const events = res.data.Events
+        const events = [
+          {
+            "Id": 2854803,
+            "Date": "2016-12-02T20:30:00",
+            "Venue": {
+              "Id": 158984,
+              "Name": "Capps Club",
+              "Address": "7620 Bothell Way NE",
+              "City": "Kenmore",
+              "State": "Washington",
+              "StateCode": "WA",
+              "Country": "US",
+              "CountryCode": "US",
+              "ZipCode": "98028",
+              "Url": "",
+              "Latitude": 0,
+              "Longitude": 0
+            },
+            "Artists": [
+              {
+                "Id": 62198,
+                "Name": "Creme Tangerine"
+              }
+            ],
+            "TicketUrl": "http://www.shareasale.com/r.cfm?u=460319&b=234786&m=27601&afftrack=&urllink=https://www.ticketfly.com/purchase/event/1335105/tfly?utm_medium=api"
+          },
+          {
+            "Id": 2828236,
+            "Date": "2016-12-02T21:00:00",
+            "Venue": {
+              "Id": 79954,
+              "Name": "The Funhouse",
+              "Address": "206 5th Ave N",
+              "City": "Seattle",
+              "State": "Washington",
+              "StateCode": "WA",
+              "Country": "US",
+              "CountryCode": "US",
+              "ZipCode": "98109",
+              "Url": "http://www.thefunhouseseattle.com/",
+              "Latitude": 47.6200527,
+              "Longitude": -122.3476219
+            },
+            "Artists": [
+              {
+                "Id": 115158,
+                "Name": "Fea"
+              }
+            ],
+            "TicketUrl": "http://www.shareasale.com/r.cfm?u=460319&b=234786&m=27601&afftrack=&urllink=https://www.ticketfly.com/purchase/event/1282411/tfly?utm_medium=api"
+          },
+          {
+            "Id": 2860741,
+            "Date": "2016-12-02T21:00:00",
+            "Venue": {
+              "Id": 43043,
+              "Name": "High Dive",
+              "Address": "513 N 36th st ",
+              "City": "Seattle",
+              "State": "Washington",
+              "StateCode": "WA",
+              "Country": "US",
+              "CountryCode": "US",
+              "ZipCode": "98103",
+              "Url": "http://www.highdiveseattle.com",
+              "Latitude": 47.651722,
+              "Longitude": -122.351744
+            },
+            "Artists": [
+              {
+                "Id": 59843,
+                "Name": "Moneta"
+              }
+            ],
+            "TicketUrl": "http://www.shareasale.com/r.cfm?u=460319&b=234786&m=27601&afftrack=&urllink=https://www.ticketfly.com/purchase/event/1353127/tfly?utm_medium=api"
+          }
+        ];
+        
         let newEvents = [];
         let todaysEvents = [];
         let date = moment().format();
@@ -56,6 +133,162 @@ const Main = React.createClass({
         }
 
         this.setState({ events: newEvents, todaysEvents: todaysEvents });
+        // this.setState({
+        //   todaysEvents: [
+        //     {
+        //       "Id": 2854803,
+        //       "Date": "2016-12-02T20:30:00",
+        //       "Venue": {
+        //         "Id": 158984,
+        //         "Name": "Capps Club",
+        //         "Address": "7620 Bothell Way NE",
+        //         "City": "Kenmore",
+        //         "State": "Washington",
+        //         "StateCode": "WA",
+        //         "Country": "US",
+        //         "CountryCode": "US",
+        //         "ZipCode": "98028",
+        //         "Url": "",
+        //         "Latitude": 0,
+        //         "Longitude": 0
+        //       },
+        //       "Artists": [
+        //         {
+        //           "Id": 62198,
+        //           "Name": "Creme Tangerine"
+        //         }
+        //       ],
+        //       "TicketUrl": "http://www.shareasale.com/r.cfm?u=460319&b=234786&m=27601&afftrack=&urllink=https://www.ticketfly.com/purchase/event/1335105/tfly?utm_medium=api"
+        //     },
+        //     {
+        //       "Id": 2828236,
+        //       "Date": "2016-12-02T21:00:00",
+        //       "Venue": {
+        //         "Id": 79954,
+        //         "Name": "The Funhouse",
+        //         "Address": "206 5th Ave N",
+        //         "City": "Seattle",
+        //         "State": "Washington",
+        //         "StateCode": "WA",
+        //         "Country": "US",
+        //         "CountryCode": "US",
+        //         "ZipCode": "98109",
+        //         "Url": "http://www.thefunhouseseattle.com/",
+        //         "Latitude": 47.6200527,
+        //         "Longitude": -122.3476219
+        //       },
+        //       "Artists": [
+        //         {
+        //           "Id": 115158,
+        //           "Name": "Fea"
+        //         }
+        //       ],
+        //       "TicketUrl": "http://www.shareasale.com/r.cfm?u=460319&b=234786&m=27601&afftrack=&urllink=https://www.ticketfly.com/purchase/event/1282411/tfly?utm_medium=api"
+        //     },
+        //     {
+        //       "Id": 2860741,
+        //       "Date": "2016-12-02T21:00:00",
+        //       "Venue": {
+        //         "Id": 43043,
+        //         "Name": "High Dive",
+        //         "Address": "513 N 36th st ",
+        //         "City": "Seattle",
+        //         "State": "Washington",
+        //         "StateCode": "WA",
+        //         "Country": "US",
+        //         "CountryCode": "US",
+        //         "ZipCode": "98103",
+        //         "Url": "http://www.highdiveseattle.com",
+        //         "Latitude": 47.651722,
+        //         "Longitude": -122.351744
+        //       },
+        //       "Artists": [
+        //         {
+        //           "Id": 59843,
+        //           "Name": "Moneta"
+        //         }
+        //       ],
+        //       "TicketUrl": "http://www.shareasale.com/r.cfm?u=460319&b=234786&m=27601&afftrack=&urllink=https://www.ticketfly.com/purchase/event/1353127/tfly?utm_medium=api"
+        //     }
+        //   ],
+        //
+        //   events: [
+        //   {
+        //     "Id": 2854803,
+        //     "Date": "2016-12-02T20:30:00",
+        //     "Venue": {
+        //       "Id": 158984,
+        //       "Name": "Capps Club",
+        //       "Address": "7620 Bothell Way NE",
+        //       "City": "Kenmore",
+        //       "State": "Washington",
+        //       "StateCode": "WA",
+        //       "Country": "US",
+        //       "CountryCode": "US",
+        //       "ZipCode": "98028",
+        //       "Url": "",
+        //       "Latitude": 0,
+        //       "Longitude": 0
+        //     },
+        //     "Artists": [
+        //       {
+        //         "Id": 62198,
+        //         "Name": "Creme Tangerine"
+        //       }
+        //     ],
+        //     "TicketUrl": "http://www.shareasale.com/r.cfm?u=460319&b=234786&m=27601&afftrack=&urllink=https://www.ticketfly.com/purchase/event/1335105/tfly?utm_medium=api"
+        //   },
+        //   {
+        //     "Id": 2828236,
+        //     "Date": "2016-12-02T21:00:00",
+        //     "Venue": {
+        //       "Id": 79954,
+        //       "Name": "The Funhouse",
+        //       "Address": "206 5th Ave N",
+        //       "City": "Seattle",
+        //       "State": "Washington",
+        //       "StateCode": "WA",
+        //       "Country": "US",
+        //       "CountryCode": "US",
+        //       "ZipCode": "98109",
+        //       "Url": "http://www.thefunhouseseattle.com/",
+        //       "Latitude": 47.6200527,
+        //       "Longitude": -122.3476219
+        //     },
+        //     "Artists": [
+        //       {
+        //         "Id": 115158,
+        //         "Name": "Fea"
+        //       }
+        //     ],
+        //     "TicketUrl": "http://www.shareasale.com/r.cfm?u=460319&b=234786&m=27601&afftrack=&urllink=https://www.ticketfly.com/purchase/event/1282411/tfly?utm_medium=api"
+        //   },
+        //   {
+        //     "Id": 2860741,
+        //     "Date": "2016-12-02T21:00:00",
+        //     "Venue": {
+        //       "Id": 43043,
+        //       "Name": "High Dive",
+        //       "Address": "513 N 36th st ",
+        //       "City": "Seattle",
+        //       "State": "Washington",
+        //       "StateCode": "WA",
+        //       "Country": "US",
+        //       "CountryCode": "US",
+        //       "ZipCode": "98103",
+        //       "Url": "http://www.highdiveseattle.com",
+        //       "Latitude": 47.651722,
+        //       "Longitude": -122.351744
+        //     },
+        //     "Artists": [
+        //       {
+        //         "Id": 59843,
+        //         "Name": "Moneta"
+        //       }
+        //     ],
+        //     "TicketUrl": "http://www.shareasale.com/r.cfm?u=460319&b=234786&m=27601&afftrack=&urllink=https://www.ticketfly.com/purchase/event/1353127/tfly?utm_medium=api"
+        //   }
+        // ]})
       })
       .catch((err) => {
         this.setState({loadErr: err});
@@ -171,7 +404,7 @@ const Main = React.createClass({
           <Match pattern="/UserDash" exactly render={
               () =>
                 <UserDash
-                  
+
                   getUserName={this.getUserName}
                   following={this.state.following}
                   getFollowing={this.getFollowing}

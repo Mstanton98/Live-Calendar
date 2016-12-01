@@ -27,14 +27,15 @@ const authorize = function(req, res, next) {
 router.get('/events', authorize, (_req, res, next) => {
   const date = moment().format();
 
-  request(`http://api.jambase.com/events?zipCode=98034&radius=50&startDate=${date}&page=0&api_key=8qjjk469mdqmt74jaygd62bq`, (err, response, body) => {
-    if (err) {
-      return next(boom.create(400, 'Bad Request'));
-    }
-    const obj = JSON.parse(body);
-
-    res.send(obj);
-  });
+  // request(`http://api.jambase.com/events?zipCode=98034&radius=50&startDate=${date}&page=0&api_key=8qjjk469mdqmt74jaygd62bq`, (err, response, body) => {
+  //   if (err) {
+  //     return next(boom.create(400, 'Bad Request'));
+  //   }
+  // });
+    // const obj = JSON.parse(body);
+    // const obj = JSON.parse(body);
+    // res.send(obj);
+    res.sendStatus(200);
 });
 
 router.post('/atendees', authorize, (req, res, next) => {

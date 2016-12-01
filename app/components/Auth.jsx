@@ -57,7 +57,6 @@ const Auth = React.createClass({
           signup={this.userSignup}
        />
       </div>
-
     );
   }
 });
