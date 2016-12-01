@@ -13,6 +13,9 @@ const Main = React.createClass({
       events: [],
       todaysEvents: [],
       following: [],
+      going: [],
+      attended: [],
+      maybe: [],
       userSearch: [],
       loadErr: false
     }
@@ -114,6 +117,40 @@ const Main = React.createClass({
       });
   },
 
+  getGoing() {
+    axios.get('/going')
+      .then((res) => {
+        const goingEvents = res.data;
+        let pastEvents = [];
+        let comingEvents = [];
+
+        for (let i = 0; i < goingEvents.length; i++) {
+          if (goingEvents[i].eventDate < moment().format()) {
+            pastEvents.push(goingEvents[i]);
+          }
+          else {
+            comingEvents.push(goingEvents[i]);
+          }
+        }
+
+        this.setState({ going: comingEvents, attended: pastEvents });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  },
+
+  getMaybe() {
+    axios.get('/maybe')
+      .then((res) => {
+
+        this.setState({ maybe: res.data });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  },
+
   render() {
     return (
         <div>
@@ -134,6 +171,7 @@ const Main = React.createClass({
           <Match pattern="/UserDash" exactly render={
               () =>
                 <UserDash
+                  
                   getUserName={this.getUserName}
                   following={this.state.following}
                   getFollowing={this.getFollowing}
