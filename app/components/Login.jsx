@@ -10,7 +10,7 @@ const Login = React.createClass({
 
   handleSubmit(event) {
     event.preventDefault();
-    
+
     return this.props.login(this.state);
   },
 

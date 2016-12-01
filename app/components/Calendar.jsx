@@ -3,8 +3,6 @@ import Month from './Month';
 import React from 'react';
 import Showfeed from './Showfeed';
 
-// console.log(moment().format('LLLL'));
-
 const Calendar = React.createClass({
 
   render() {

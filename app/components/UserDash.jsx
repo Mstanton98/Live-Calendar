@@ -7,6 +7,10 @@ import RaisedButton from 'material-ui/RaisedButton';
 // Card
 import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
 import FlatButton from 'material-ui/FlatButton';
+// Badge
+import Badge from 'material-ui/Badge';
+import IconButton from 'material-ui/IconButton';
+import NotificationsIcon from 'material-ui/svg-icons/social/notifications';
 
 const UserDash = React.createClass({
   getInitialState() {
@@ -26,6 +30,7 @@ const UserDash = React.createClass({
     return (
 
       <div id="userDash">
+       <div className="container">
         {/* Drawer / Sidebar */}
       <div>
         <RaisedButton
@@ -52,29 +57,122 @@ const UserDash = React.createClass({
       </div>
         {/* End Drawer / Sidebar */}
 
-        {/* Card */}
-        <div>
+        {/* Cards */}
+
+        <div id="user-main-dash">
+          <div className="row ud-row-one">
+            <div className="six columns">
+
+        {/* Card Attending */}
+          <Card>
+            <CardHeader
+              title="Your Attending"
+              subtitle="Confirmed Shows"
+            />
+          <CardText >
+            Show Data Goes Here
+          </CardText>
+          <CardActions>
+            <p>Followers</p>
+            <div className="ud-followers-badge">
+              <FlatButton disabled={true} label="Going" />
+                 <Badge
+                   badgeContent={10}
+                   primary={true}
+                 >
+                   <NotificationsIcon />
+                 </Badge>
+            </div>
+            <div className="ud-followers-badge">
+              <FlatButton disabled={true} label="Maybes" />
+              <Badge
+                badgeContent={4}
+                secondary={true}
+              >
+                <NotificationsIcon />
+              </Badge>
+            </div>
+
+          </CardActions>
+          </Card>
+          </div>
+
+          {/* Card Maybes */}
+          <div className="six columns">
         <Card>
-         <CardHeader
-           title="Attending"
-           actAsExpander={true}
-           showExpandableButton={true}
-         />
-         <CardText expandable={true}>
-           Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-           Donec mattis pretium massa. Aliquam erat volutpat. Nulla facilisi.
-           Donec vulputate interdum sollicitudin. Nunc lacinia auctor quam sed pellentesque.
-           Aliquam dui mauris, mattis quis lacus id, pellentesque lobortis odio.
-         </CardText>
-         <CardActions>
-           <FlatButton label="Action1" />
-           <FlatButton label="Action2" />
-         </CardActions>
-         </Card>
-         </div>
-      {/* End Card */}
+          <CardHeader
+            title="Your Maybes"
+            subtitle="Might Go Shows"
+          />
+        <CardText>
+          Show Data Here
+        </CardText>
+        <CardActions>
+          <p>Followers</p>
+          <div className="ud-followers-badge">
+            <FlatButton disabled={true} label="Going" />
+            <Badge
+              badgeContent={10}
+              primary={true}
+            >
+              <NotificationsIcon />
+            </Badge>
+          </div>
+          <div className="ud-followers-badge">
+            <FlatButton disabled={true} label="Maybes" />
+            <Badge
+              badgeContent={4}
+              secondary={true}
+            >
+              <NotificationsIcon />
+            </Badge>
+          </div>
+        </CardActions>
+        </Card>
+        </div>
+        </div>
+
+        <div className="row ud-row-two">
+          <div className="six columns">
+        <Card>
+          <CardHeader
+            title="Suggestions"
+            subtitle="Followers are going"
+          />
+        <CardText>
+          Show Data Here
+        </CardText>
+        <CardActions>
+         <p>Followers</p>
+          <FlatButton label="Going" />
+          <FlatButton label="Action2" />
+        </CardActions>
+        </Card>
+        </div>
+
+        <div className="six columns">
+      <Card>
+        <CardHeader
+          title="Attended"
+          actAsExpander={true}
+          showExpandableButton={true}
+        />
+      <CardText expandable={true}>
+        Show Data Here
+      </CardText>
+      <CardActions>
+        <FlatButton label="Action1" />
+        <FlatButton label="Action2" />
+      </CardActions>
+      </Card>
+      </div>
       </div>
 
+
+        </div>
+        {/* End Card */}
+       </div>
+      </div>
     );
   }
 });

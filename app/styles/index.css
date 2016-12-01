@@ -19,3 +19,11 @@ span.date-time-title{
 button.ticket-link, a.venue-link{
   display: inline-block;
 }
+
+/*Usersdash*/
+div.row.ud-row-one, div.row.ud-row-two {
+  margin: 50px 0 20px 0;
+}
+div.ud-followers-badge {
+  display: inline-block;
+}
