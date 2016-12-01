@@ -10,7 +10,7 @@ const Auth = React.createClass({
     axios.post('/token', user)
       .then((res) => {
         if (res) {
-          window.location.pathname = '/';
+          window.location.pathname = '/Calendar';
         }
       })
       .catch((err) => {
@@ -31,7 +31,7 @@ const Auth = React.createClass({
           })
           .then((response) => {
             if (response) {
-              window.location.pathname = '/';
+              window.location.pathname = '/Calendar';
             }
             else {
               return Materialize.toast('There was an error, please try again.', 4000);
