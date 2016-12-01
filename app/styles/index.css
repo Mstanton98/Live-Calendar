@@ -22,5 +22,8 @@ button.ticket-link, a.venue-link{
 
 /*Usersdash*/
 div.row.ud-row-one, div.row.ud-row-two {
-  margin: 20px 0 20px 0;
+  margin: 50px 0 20px 0;
+}
+div.ud-followers-badge {
+  display: inline-block;
 }

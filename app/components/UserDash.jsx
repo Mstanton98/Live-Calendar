@@ -7,6 +7,10 @@ import RaisedButton from 'material-ui/RaisedButton';
 // Card
 import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
 import FlatButton from 'material-ui/FlatButton';
+// Badge
+import Badge from 'material-ui/Badge';
+import IconButton from 'material-ui/IconButton';
+import NotificationsIcon from 'material-ui/svg-icons/social/notifications';
 
 const UserDash = React.createClass({
   getInitialState() {
@@ -53,39 +57,76 @@ const UserDash = React.createClass({
       </div>
         {/* End Drawer / Sidebar */}
 
-        {/* Card */}
+        {/* Cards */}
+
         <div id="user-main-dash">
           <div className="row ud-row-one">
             <div className="six columns">
+
+        {/* Card Attending */}
           <Card>
             <CardHeader
-              title="Attending"
-              actAsExpander={true}
-              showExpandableButton={true}
+              title="Your Attending"
+              subtitle="Confirmed Shows"
             />
-          <CardText expandable={true}>
-            Show Data Here
+          <CardText >
+            Show Data Goes Here
           </CardText>
           <CardActions>
-            <FlatButton label="Action1" />
-            <FlatButton label="Action2" />
+            <p>Followers</p>
+            <div className="ud-followers-badge">
+              <FlatButton disabled={true} label="Going" />
+                 <Badge
+                   badgeContent={10}
+                   primary={true}
+                 >
+                   <NotificationsIcon />
+                 </Badge>
+            </div>
+            <div className="ud-followers-badge">
+              <FlatButton disabled={true} label="Maybes" />
+              <Badge
+                badgeContent={4}
+                secondary={true}
+              >
+                <NotificationsIcon />
+              </Badge>
+            </div>
+
           </CardActions>
           </Card>
           </div>
 
+          {/* Card Maybes */}
           <div className="six columns">
         <Card>
           <CardHeader
-            title="Maybes"
-            actAsExpander={true}
-            showExpandableButton={true}
+            title="Your Maybes"
+            subtitle="Might Go Shows"
           />
-        <CardText expandable={true}>
+        <CardText>
           Show Data Here
         </CardText>
         <CardActions>
-          <FlatButton label="Action1" />
-          <FlatButton label="Action2" />
+          <p>Followers</p>
+          <div className="ud-followers-badge">
+            <FlatButton disabled={true} label="Going" />
+            <Badge
+              badgeContent={10}
+              primary={true}
+            >
+              <NotificationsIcon />
+            </Badge>
+          </div>
+          <div className="ud-followers-badge">
+            <FlatButton disabled={true} label="Maybes" />
+            <Badge
+              badgeContent={4}
+              secondary={true}
+            >
+              <NotificationsIcon />
+            </Badge>
+          </div>
         </CardActions>
         </Card>
         </div>
@@ -96,14 +137,14 @@ const UserDash = React.createClass({
         <Card>
           <CardHeader
             title="Suggestions"
-            actAsExpander={true}
-            showExpandableButton={true}
+            subtitle="Followers are going"
           />
-        <CardText expandable={true}>
+        <CardText>
           Show Data Here
         </CardText>
         <CardActions>
-          <FlatButton label="Action1" />
+         <p>Followers</p>
+          <FlatButton label="Going" />
           <FlatButton label="Action2" />
         </CardActions>
         </Card>

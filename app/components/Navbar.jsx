@@ -11,6 +11,13 @@ import MenuItem from 'material-ui/MenuItem';
 import FlatButton from 'material-ui/FlatButton';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 import NavigationClose from 'material-ui/svg-icons/navigation/close';
+import {black400, grey500, grey100, blue500} from 'material-ui/styles/colors';
+
+const styles = {
+  navbar:  {
+    backgroundColor: grey500
+  }
+};
 
 class Login extends Component {
   static muiName= 'FlatButton';
@@ -23,7 +30,9 @@ class Login extends Component {
 }
 
 const Logged = (props) => (
+  <div style={styles.navbar}>
   <IconMenu
+
     {...props}
     iconButtonElement={
       <IconButton><MoreVertIcon /></IconButton>
@@ -37,6 +46,7 @@ const Logged = (props) => (
     <Link to="/UserDash"><MenuItem primaryText="Dashboard" /></Link>
 
   </IconMenu>
+  </div>
 );
 
 Logged.muiName = 'IconMenu';
