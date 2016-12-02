@@ -24,7 +24,9 @@ const Main = React.createClass({
   componentDidMount() {
     axios.get('/events')
       .then((res) => {
+
         const events = res.data.Events;
+
         let newEvents = [];
         let todaysEvents = [];
         let date = moment().format();
@@ -53,13 +55,21 @@ const Main = React.createClass({
           }
 
           newEvents.push(singleEvent);
-        }
+            }
 
+<<<<<<< 7c323833da87ca68854a509c0b77865cab85dc98
         this.setState({ events: newEvents, todaysEvents: todaysEvents });
       })
       .catch((err) => {
         this.setState({loadErr: err});
       });
+=======
+            this.setState({ events: newEvents, todaysEvents: todaysEvents });
+          })
+          .catch((err) => {
+            this.setState({loadErr: err});
+          });
+>>>>>>> rewired the api, copied auth, login and from github to aviod merge issues. Parts of main too. Wish me luck
   },
 
   postEvent(event) {
