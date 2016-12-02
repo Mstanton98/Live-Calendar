@@ -4,6 +4,8 @@ import Users from './Users';
 import Drawer from 'material-ui/Drawer';
 import MenuItem from 'material-ui/MenuItem';
 import RaisedButton from 'material-ui/RaisedButton';
+import Snackbar from 'material-ui/Snackbar';
+
 // Card
 import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
 import FlatButton from 'material-ui/FlatButton';
@@ -176,6 +178,16 @@ const UserDash = React.createClass({
                         </div>
                         {/* End Card */}
                       </div>
+                      <Snackbar
+         open={this.props.open}
+         message="User followed!"
+         autoHideDuration={4000}
+       />
+       <Snackbar
+         open={this.props.open1}
+         message="User not found."
+         autoHideDuration={4000}
+       />
                     </div>
                   );
                 }

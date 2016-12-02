@@ -2,14 +2,22 @@ import React from 'react';
 import axios from 'axios';
 import Router from 'react-router/BrowserRouter'
 import Redirect from 'react-router/Redirect'
+import Snackbar from 'material-ui/Snackbar';
 import Login from './Login';
 import Signup from './Signup';
 
 const Auth = React.createClass({
   getInitialState() {
     return {
-      login: true
+      login: true,
+      open: false,
+      open1: false,
+      open2: false
     }
+  },
+
+  componentDidMount() {
+    this.setState({ open: false, open1: false, open2: false });
   },
 
   userLogin(user) {
@@ -17,7 +25,11 @@ const Auth = React.createClass({
       .then((res) => {
         if (res) {
           // this.props.authCheck();
+          this.setState({ open: true });
           window.location.pathname = '/Calendar';
+        }
+        else {
+          this.setState({ open2: true});
         }
       })
       .catch((err) => {
@@ -39,10 +51,11 @@ const Auth = React.createClass({
           .then((response) => {
             if (response) {
               // this.props.authCheck();
+              this.setState({ open1: true });
               window.location.pathname = '/Calendar';
             }
             else {
-              return Materialize.toast('There was an error, please try again.', 4000);
+              this.setState({ open2: true});
             }
           })
           .catch((err) => {
@@ -69,12 +82,16 @@ const Auth = React.createClass({
 
     if (this.state.login) {
       loginForm = <Login
+        open={this.state.open}
+        open2={this.state.open2}
         login={this.userLogin}
         signupRender={this.signupRender}
       />
     }
     else {
       signup = <Signup
+        open1={this.state.open1}
+        open2={this.state.open2}
         signup={this.userSignup}
         loginRender={this.loginRender}
      />
@@ -84,6 +101,21 @@ const Auth = React.createClass({
       <div id="Auth">
         {loginForm}
         {signup}
+        <Snackbar
+           open={this.state.open1}
+           message="Account created!"
+           autoHideDuration={4000}
+         />
+         <Snackbar
+            open={this.state.open}
+            message="User logged in!"
+            autoHideDuration={4000}
+          />
+         <Snackbar
+           open={this.state.open2}
+           message="Something went wrong, please try again."
+           autoHideDuration={4000}
+         />
       </div>
     );
   }

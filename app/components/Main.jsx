@@ -18,12 +18,15 @@ const Main = React.createClass({
       attended: [],
       maybe: [],
       userSearch: [],
+      open: false,
+      open1: false,
       loggedIn: false,
       loadErr: false
     }
   },
 
   componentDidMount() {
+    this.setState({ open: false, open1: false })
     axios.get('/events')
       .then((res) => {
 
@@ -103,8 +106,13 @@ const Main = React.createClass({
     const username = { username: name };
     axios.post('/username', username)
       .then((res) => {
+        if (res.data.length > 0) {
 
-        this.setState({ userSearch: res.data });
+          this.setState({ userSearch: res.data });
+        }
+        else {
+          this.setState({ open1: true })
+        }
       })
       .catch((err) => {
         console.log(err);
@@ -116,7 +124,7 @@ const Main = React.createClass({
       .then((res) => {
 
         this.getFollowing();
-        this.setState({ userSearch: [] })
+        this.setState({ userSearch: [], open: true });
       })
       .catch((err) => {
         console.log(err);
@@ -265,6 +273,8 @@ const Main = React.createClass({
               <Redirect to="/" />
             ) : (
                 <UserDash
+                  open={this.state.open}
+                  open1={this.state.open1}
                   authCheck={this.props.authCheck}
                   going={this.state.going}
                   maybe={this.state.maybe}

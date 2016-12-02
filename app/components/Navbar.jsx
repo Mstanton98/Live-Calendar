@@ -53,7 +53,6 @@ const Navbar = React.createClass({
         anchorOrigin={{horizontal: 'right', vertical: 'top'}}
       >
         <Link to="/"><MenuItem primaryText="Login" /></Link>
-        <Link to="/"><MenuItem primaryText="Signup" /></Link>
         <Link to="/Calendar"><MenuItem primaryText="Calendar" /></Link>
         <Link to="/UserDash"><MenuItem primaryText="Dashboard" /></Link>
         <Link to="/"><MenuItem primaryText="Sign Out" onClick={this.handleClick} /></Link>
