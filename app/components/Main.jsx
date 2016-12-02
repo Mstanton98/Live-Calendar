@@ -4,6 +4,7 @@ import Calendar from './Calendar';
 import axios from 'axios';
 import Auth from './Auth';
 import React from 'react';
+import Redirect from 'react-router/Redirect'
 import UserDash from './UserDash';
 import moment from 'moment';
 
@@ -17,6 +18,7 @@ const Main = React.createClass({
       attended: [],
       maybe: [],
       userSearch: [],
+      loggedIn: false,
       loadErr: false
     }
   },
@@ -60,6 +62,7 @@ const Main = React.createClass({
       .catch((err) => {
         this.setState({loadErr: err});
       });
+      return this.props.authCheck();
   },
 
   postEvent(event) {
@@ -224,25 +227,35 @@ const Main = React.createClass({
   },
 
   render() {
+    console.log(this.props.isLoggedIn);
     return (
         <div>
           <Match pattern="/Calendar" exactly render={
-              () =>
+              () => (
+              this.props.isLoggedIn ? (
+              <Redirect to="/" />
+            ) : (
                 <Calendar
                   events={this.state.events}
                   postEvent={this.postEvent}
                   todaysEvents={this.state.todaysEvents}
-                />
-          }/>
+                />)
+              )}
+          />
           <Match pattern="/" exactly render={
               () =>
               <Auth
                 signup={this.userSignup}
              />
-          }/>
+            }
+          />
           <Match pattern="/UserDash" exactly render={
-              () =>
+              () => (
+              this.props.isLoggedIn ? (
+              <Redirect to="/" />
+            ) : (
                 <UserDash
+                  authCheck={this.props.authCheck}
                   going={this.state.going}
                   maybe={this.state.maybe}
                   attended={this.state.attended}
@@ -254,8 +267,9 @@ const Main = React.createClass({
                   deleteFollowing={this.deleteFollowing}
                   userSearch={this.state.userSearch}
                   followUser={this.followUser}
-               />
-          }/>
+               />)
+             )}
+           />
         </div>
     );
   }

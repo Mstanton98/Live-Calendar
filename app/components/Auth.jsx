@@ -16,6 +16,7 @@ const Auth = React.createClass({
     axios.post('/token', user)
       .then((res) => {
         if (res) {
+          this.props.authCheck();
           window.location.pathname = '/Calendar';
         }
       })
@@ -37,6 +38,7 @@ const Auth = React.createClass({
           })
           .then((response) => {
             if (response) {
+              this.props.authCheck();
               window.location.pathname = '/Calendar';
             }
             else {
@@ -82,12 +84,6 @@ const Auth = React.createClass({
       <div id="Auth">
         {loginForm}
         {signup}
-        {/* <Login
-          login={this.userLogin}
-        />
-        <Signup
-          signup={this.userSignup}
-       /> */}
       </div>
     );
   }
