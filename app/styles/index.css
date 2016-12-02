@@ -67,6 +67,22 @@ div.row.ud-row-one, div.row.ud-row-two {
 div.ud-followers-badge {
   display: inline-block;
 }
+/*login*/
+button.button.six.columns.offset-by-three {
+  background-color: #000;
+  color: white;
+}
+button.button.six.columns.offset-by-three.backto {
+  background-color:#202020;
+  color: white;
+}
+div#App{
+  background: url(img/posters.png) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
 div#login {
   /*margin-top: 20px;
   margin-bottom: 20px;*/
@@ -85,15 +101,28 @@ div#signup {
 input#first_name {
   position: relative;
   display: block;
-  /*top: 10px;*/
 }
 div.five.columns {
+  top: 33%;
+  background-color: #eee;
+  margin-top: -25%;
+  position: absolute;
   margin-bottom: 20px;
   display: block;
   padding-top: 25px;
-  margin: auto 0;
-  line-height: 50%;
-  height: 50%;
+  margin: 0 auto;
+  line-height: 100%;
+}
+div.four.columns.sign {
+  top: 15%;
+  background-color: #eee;
+  margin-top: -25%;
+  position: absolute;
+  margin-bottom: 20px;
+  display: block;
+  padding-top: 25px;
+  margin: 0 auto;
+  line-height: 100%;
 }
 div.twelve.columns {
 padding-top: 20px;
