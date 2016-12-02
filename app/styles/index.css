@@ -67,6 +67,10 @@ div.row.ud-row-one, div.row.ud-row-two {
 div.ud-followers-badge {
   display: inline-block;
 }
+div.six.columns {
+background-color: #eee;
+margin-top: 10%;
+}
 /*login*/
 button.button.six.columns.offset-by-three {
   background-color: #000;
@@ -76,8 +80,8 @@ button.button.six.columns.offset-by-three.backto {
   background-color:#202020;
   color: white;
 }
-div#App{
-  background: url(img/posters.png) no-repeat center center fixed;
+div#Auth{
+  background: url(components/img/posters.png) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;

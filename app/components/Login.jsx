@@ -10,9 +10,6 @@ const styles = {
     margin: 'auto'
   },
   submit: {
-    // display: 'block',
-    // backgroundColor: red200,
-    // color: red300
   }
 };
 
