@@ -4,14 +4,53 @@
 
 html, body, .row {
     height: 100%;
+    font-family: 'Helvetica', sans-serif;
 }
-
+/* Navbar */
+div#navbar{
+  
+}
+/* Calendar*/
 div#month {
   margin:auto;
   display: inline-block;
-  /*float: right;*/
-  width: 69vw;
+  width: 100%;
   height: 66vh;
+}
+div.rbc-day-bg {
+  border-radius: 10%;
+  background-color: #eee;
+  margin: 20px;
+  min-width: 50px;
+  min-height: 50px;
+}
+.rbc-month-view{
+  border: 0;
+}
+.rbc-month-row + .rbc-month-row {
+  height: 150px;
+  min-width: 250px;
+  min-height: 50px;
+  border: 0;
+}
+.rbc-month-view, .rbc-header, .rbc-header
+.rbc-day-bg, .rbc-day-bg {
+  border-left: 0 !important;
+  border-bottom: 0 !important;
+}
+.rbc-date-cell {
+    display: inline-flex;
+    justify-content: center;
+    font-size: 20px;
+    padding-right: 5px;
+    text-align: center;
+    min-height: 100px;
+    max-height: 50px;
+    line-height: 90px;
+}
+.rbc-toolbar button {
+  font-size: 1em;
+  border: 0;
 }
 div#shows {
   text-align: center;
@@ -32,6 +71,26 @@ div.row.ud-row-one, div.row.ud-row-two {
 div.ud-followers-badge {
   display: inline-block;
 }
+div.six.columns {
+background-color: #eee;
+margin-top: 10%;
+}
+/*login*/
+button.button.six.columns.offset-by-three {
+  background-color: #000;
+  color: white;
+}
+button.button.six.columns.offset-by-three.backto {
+  background-color:#202020;
+  color: white;
+}
+div#Auth{
+  background: url(components/img/posters.png) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
 div#login {
   /*margin-top: 20px;
   margin-bottom: 20px;*/
@@ -50,15 +109,28 @@ div#signup {
 input#first_name {
   position: relative;
   display: block;
-  /*top: 10px;*/
 }
 div.five.columns {
+  top: 33%;
+  background-color: #eee;
+  margin-top: -25%;
+  position: absolute;
   margin-bottom: 20px;
   display: block;
   padding-top: 25px;
-  margin: auto 0;
-  line-height: 50%;
-  height: 50%;
+  margin: 0 auto;
+  line-height: 100%;
+}
+div.four.columns.sign {
+  top: 15%;
+  background-color: #eee;
+  margin-top: -25%;
+  position: absolute;
+  margin-bottom: 20px;
+  display: block;
+  padding-top: 25px;
+  margin: 0 auto;
+  line-height: 100%;
 }
 div.twelve.columns {
 padding-top: 20px;

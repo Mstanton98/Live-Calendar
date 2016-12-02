@@ -26,7 +26,9 @@ const Main = React.createClass({
   componentDidMount() {
     axios.get('/events')
       .then((res) => {
+
         const events = res.data.Events;
+
         let newEvents = [];
         let todaysEvents = [];
         let date = moment().format();
@@ -55,13 +57,14 @@ const Main = React.createClass({
           }
 
           newEvents.push(singleEvent);
-        }
+            }
 
         this.setState({ events: newEvents, todaysEvents: todaysEvents });
       })
       .catch((err) => {
         this.setState({loadErr: err});
       });
+
       return this.props.authCheck();
   },
 
@@ -197,25 +200,33 @@ const Main = React.createClass({
   getMaybe() {
     axios.get('/maybe')
       .then((res) => {
-        const stringEventDate = events[i].eventDate.toString();
-        const exactEventDate = stringEventDate.substring(0, stringEventDate.indexOf('T'));
+        const eventArr = res.data;
 
-        Promise.all(goingEvents.map((event) => {
+        Promise.all(eventArr.map((event) => {
 
           return Promise.all([
             this.getAttendeesGoing({ eventId: event.eventId }),
             this.getAttendeesMaybe({ eventId: event.eventId })
           ])
           .then((arr) => {
-            return Object.assign({}, event, { attendeesGoing: arr[0], attendeesMaybe: arr[1], exactDate: exactEventDate });
+            return Object.assign({}, event, { attendeesGoing: arr[0], attendeesMaybe: arr[1] });
           })
           .catch((err) => {
             console.log(err);
           });
         }))
         .then((maybeEvents) => {
+          const events = [];
+          for (let i = 0; i < maybeEvents.length; i++) {
+            const stringEventDate = maybeEvents[i].eventDate.toString();
+            const exactEventDate = stringEventDate.substring(0, stringEventDate.indexOf('T'));
 
-          this.setState({ maybe: maybeEvents });
+            const event = Object.assign({}, maybeEvents[i],{ exactDate: exactEventDate })
+
+            events.push(event);
+          }
+
+          this.setState({ maybe: events });
         })
         .catch((err) => {
           console.log(err);
@@ -227,7 +238,6 @@ const Main = React.createClass({
   },
 
   render() {
-    console.log(this.props.isLoggedIn);
     return (
         <div>
           <Match pattern="/Calendar" exactly render={

@@ -64,13 +64,12 @@ const Navbar = React.createClass({
     );
 
     Logged.muiName = 'IconMenu';
-    console.log(this.props);
 
     return (
-        <div>
+        <div id="navbar">
         <AppBar
           style={styles.navbar}
-          title="Live!"
+          title="Live!Calendar"
           iconElementRight={this.state.logged ? <Logged /> : <Login />}
         />
       </div>

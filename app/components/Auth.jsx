@@ -16,7 +16,7 @@ const Auth = React.createClass({
     axios.post('/token', user)
       .then((res) => {
         if (res) {
-          this.props.authCheck();
+          // this.props.authCheck();
           window.location.pathname = '/Calendar';
         }
       })
@@ -38,7 +38,7 @@ const Auth = React.createClass({
           })
           .then((response) => {
             if (response) {
-              this.props.authCheck();
+              // this.props.authCheck();
               window.location.pathname = '/Calendar';
             }
             else {

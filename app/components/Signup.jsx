@@ -3,13 +3,13 @@ import { white, red100, red200, red300, grey100, grey500, grey900 } from 'materi
 
 const styles = {
   signup: {
-    position: 'relative',
-    height: '50%',
-    lineHeight: '50%',
-    backgroundColor: red100,
-    borderRadius: 10,
-    margin: 'auto',
-    color: red200
+    // position: 'relative',
+    // height: '50%',
+    // lineHeight: '50%',
+    // backgroundColor: red100,
+    // borderRadius: 10,
+    // margin: 'auto',
+    // color: red200
   },
   input: {
     padding: 10,
@@ -17,9 +17,9 @@ const styles = {
     margin: 'auto'
   },
   submit: {
-    display: 'block',
-    backgroundColor: red200,
-    color: red300
+    // display: 'block',
+    // backgroundColor: red200,
+    // color: red300
   }
 };
 
@@ -55,7 +55,7 @@ const Signup = React.createClass({
     return (
 
       <div id="sign-up" className="ten columns offset-by-four">
-        <div className="five columns" style={styles.signup}>
+        <div className="four columns sign" style={styles.signup}>
           <form onSubmit={this.handleSubmit}>
             <div className="row">
               <div
@@ -132,7 +132,7 @@ const Signup = React.createClass({
             </button>
             <button
               style={styles.submit}
-              className="button six columns offset-by-three"
+              className="button six columns offset-by-three backto"
               type="submit"
               onClick={this.handleClick}
               name="action" >

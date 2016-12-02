@@ -65,13 +65,13 @@ const UserDash = React.createClass({
             {/* Cards */}
 
             <div id="user-main-dash">
-              <div className="row ud-row-one">
-                <div className="four columns">
+              <div className="row ">
+                <div className="six columns">
 
                   {/* Card Attending */}
                   <Card>
                     <CardHeader
-                      title="Your Attending"
+                      title="You're Attending"
                       subtitle="Confirmed Shows"
                     />
                     {this.props.going.map((event, index) => {
@@ -110,7 +110,7 @@ const UserDash = React.createClass({
                       </div>
 
                       {/* Card Maybes */}
-                      <div className="four columns">
+                      <div className="six columns">
                         <Card>
                           <CardHeader
                             title="Your Maybes"
@@ -150,7 +150,8 @@ const UserDash = React.createClass({
                               </Card>
                             </div>
 
-                            <div className="four columns">
+                            <div className="row">
+                            <div className="six columns offset-by-six">
                               <Card>
                                 <CardHeader
                                   title="Attended"
@@ -167,14 +168,10 @@ const UserDash = React.createClass({
                                     <p>{event.exactDate}</p>
                                   </CardText>
                                 })}
-                                <CardActions>
-                                  <FlatButton label="Action1" />
-                                  <FlatButton label="Action2" />
-                                </CardActions>
                               </Card>
                             </div>
                           </div>
-
+                        </div>
 
                         </div>
                         {/* End Card */}
