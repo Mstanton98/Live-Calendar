@@ -33,13 +33,16 @@ div.ud-followers-badge {
   display: inline-block;
 }
 div#login {
-  margin-top: 20px;
+  /*margin-top: 20px;
+  margin-bottom: 20px;*/
   postion: absolute;
   height: 100%;
   line-height: 100%;
+  padding-bottom: 25px;
 }
 div#signup {
-  margin-top: 20px;
+  /*margin-top: 20px;
+  margin-bottom: 20px;*/
   postion: absolute;
   height: 100%;
   line-height: 100%;
@@ -50,6 +53,7 @@ input#first_name {
   /*top: 10px;*/
 }
 div.five.columns {
+  margin-bottom: 20px;
   display: block;
   padding-top: 25px;
   margin: auto 0;
