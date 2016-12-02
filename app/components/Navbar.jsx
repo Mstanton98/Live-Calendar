@@ -60,10 +60,10 @@ const Navbar = React.createClass({
 
   render() {
     return (
-        <div>
+        <div id="navbar">
         <AppBar
           style={styles.navbar}
-          title="Live!"
+          title="Live!Calendar"
           iconElementRight={this.state.logged ? <Logged /> : <Login />}
         />
       </div>

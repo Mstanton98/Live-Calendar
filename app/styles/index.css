@@ -6,6 +6,10 @@ html, body, .row {
     height: 100%;
     font-family: 'Helvetica', sans-serif;
 }
+/* Navbar */
+div#navbar{
+  
+}
 /* Calendar*/
 div#month {
   margin:auto;
