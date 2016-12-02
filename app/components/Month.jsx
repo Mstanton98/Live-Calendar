@@ -13,9 +13,7 @@ const Month = React.createClass({
   getInitialState() {
     return {
       open: false,
-      currentDateStart: null,
       date: null,
-      currentDateEnd: null,
       currentDayEvents: [],
       events: [
         {
@@ -106,7 +104,7 @@ const Month = React.createClass({
       }
     }
 
-    this.setState({ currentDayEvents: dayEventsArr })
+    this.setState({ currentDayEvents: dayEventsArr });
   },
 
   handleOpen() {

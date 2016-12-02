@@ -24,7 +24,7 @@ const Main = React.createClass({
   componentDidMount() {
     axios.get('/events')
       .then((res) => {
-        const events = res.data.Events
+        const events = res.data.Events;
         let newEvents = [];
         let todaysEvents = [];
         let date = moment().format();
@@ -84,7 +84,7 @@ const Main = React.createClass({
   },
 
   deleteFollowing(followingId) {
-    axios.delete('/relationships', {data: {followingId}})
+    axios.delete('/relationships', { data: { followingId } })
       .then((res) => {
         this.getFollowing();
       })
@@ -106,7 +106,7 @@ const Main = React.createClass({
   },
 
   followUser(follow) {
-    axios.post('/relationships', {data: {follow}})
+    axios.post('/relationships', { data: { follow } })
       .then((res) => {
 
         this.getFollowing();
@@ -117,23 +117,74 @@ const Main = React.createClass({
       });
   },
 
+  getAttendeesGoing(eventId) {
+    return axios.post('/attendeesGoing', eventId)
+      .then((res) => {
+        return res.data;
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  },
+
+  getAttendeesMaybe(eventId) {
+    return axios.post('/attendeesMaybe', eventId)
+      .then((res) => {
+
+        return res.data;
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  },
+
   getGoing() {
     axios.get('/going')
       .then((res) => {
         const goingEvents = res.data;
-        let pastEvents = [];
-        let comingEvents = [];
 
-        for (let i = 0; i < goingEvents.length; i++) {
-          if (goingEvents[i].eventDate < moment().format()) {
-            pastEvents.push(goingEvents[i]);
-          }
-          else {
-            comingEvents.push(goingEvents[i]);
-          }
-        }
+        Promise.all(goingEvents.map((event) => {
 
-        this.setState({ going: comingEvents, attended: pastEvents });
+          return Promise.all([
+            this.getAttendeesGoing({ eventId: event.eventId }),
+            this.getAttendeesMaybe({ eventId: event.eventId })
+          ])
+          .then((arr) => {
+            return Object.assign({}, event, { attendeesGoing: arr[0], attendeesMaybe: arr[1] });
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+        }))
+        .then((events) => {
+          let pastEvents = [];
+          let comingEvents = [];
+          let date = moment().format();
+
+          for (let i = 0; i < events.length; i++) {
+            const stringDate = date.toString();
+            const exactDate = stringDate.substring(0, stringDate.indexOf('T'));
+
+            const stringEventDate = events[i].eventDate.toString();
+            const exactEventDate = stringEventDate.substring(0, stringEventDate.indexOf('T'));
+
+            const event = Object.assign({}, events[i], {exactDate: exactEventDate });
+
+            if (event.exactEventDate < exactDate) {
+
+              pastEvents.push(event);
+            }
+            else {
+
+              comingEvents.push(event);
+            }
+          }
+
+          this.setState({ going: comingEvents, attended: pastEvents });
+        })
+        .catch((err) => {
+          console.log(err);
+        });
       })
       .catch((err) => {
         console.log(err);
@@ -143,8 +194,29 @@ const Main = React.createClass({
   getMaybe() {
     axios.get('/maybe')
       .then((res) => {
+        const stringEventDate = events[i].eventDate.toString();
+        const exactEventDate = stringEventDate.substring(0, stringEventDate.indexOf('T'));
 
-        this.setState({ maybe: res.data });
+        Promise.all(goingEvents.map((event) => {
+
+          return Promise.all([
+            this.getAttendeesGoing({ eventId: event.eventId }),
+            this.getAttendeesMaybe({ eventId: event.eventId })
+          ])
+          .then((arr) => {
+            return Object.assign({}, event, { attendeesGoing: arr[0], attendeesMaybe: arr[1], exactDate: exactEventDate });
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+        }))
+        .then((maybeEvents) => {
+
+          this.setState({ maybe: maybeEvents });
+        })
+        .catch((err) => {
+          console.log(err);
+        });
       })
       .catch((err) => {
         console.log(err);
@@ -171,7 +243,11 @@ const Main = React.createClass({
           <Match pattern="/UserDash" exactly render={
               () =>
                 <UserDash
-                  
+                  going={this.state.going}
+                  maybe={this.state.maybe}
+                  attended={this.state.attended}
+                  getGoing={this.getGoing}
+                  getMaybe={this.getMaybe}
                   getUserName={this.getUserName}
                   following={this.state.following}
                   getFollowing={this.getFollowing}

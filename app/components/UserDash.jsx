@@ -19,6 +19,11 @@ const UserDash = React.createClass({
     };
   },
 
+  componentDidMount() {
+    this.props.getGoing();
+    this.props.getMaybe();
+  },
+
   handleToggle() {
     this.setState({ open: !this.state.open });
   },
@@ -30,151 +35,153 @@ const UserDash = React.createClass({
     return (
 
       <div id="userDash">
-       <div className="container">
-        {/* Drawer / Sidebar */}
-      <div>
-        <RaisedButton
-          label="Users Dock"
-          onTouchTap={this.handleToggle}
-          onClick={this.props.getFollowing}
-        />
-        <Drawer
-          docked={false}
-          width={400}
-          open={this.state.open}
-          onRequestChange={(open) => this.setState({open})}
-        >
-        <Users
-          following={this.props.following}
-          deleteFollowing={this.props.deleteFollowing}
-          getUserName={this.props.getUserName}
-          followUser={this.props.followUser}
-          userSearch={this.props.userSearch}
-        />
-          <MenuItem onTouchTap={this.handleClose}>Menu Item</MenuItem>
-          <MenuItem onTouchTap={this.handleClose}>Menu Item 2</MenuItem>
-        </Drawer>
-      </div>
-        {/* End Drawer / Sidebar */}
-
-        {/* Cards */}
-
-        <div id="user-main-dash">
-          <div className="row ud-row-one">
-            <div className="six columns">
-
-        {/* Card Attending */}
-          <Card>
-            <CardHeader
-              title="Your Attending"
-              subtitle="Confirmed Shows"
+        <div className="container">
+          {/* Drawer / Sidebar */}
+          <div>
+            <RaisedButton
+              label="Users Dock"
+              onTouchTap={this.handleToggle}
+              onClick={this.props.getFollowing}
             />
-          <CardText >
-            Show Data Goes Here
-          </CardText>
-          <CardActions>
-            <p>Followers</p>
-            <div className="ud-followers-badge">
-              <FlatButton disabled={true} label="Going" />
-                 <Badge
-                   badgeContent={10}
-                   primary={true}
-                 >
-                   <NotificationsIcon />
-                 </Badge>
-            </div>
-            <div className="ud-followers-badge">
-              <FlatButton disabled={true} label="Maybes" />
-              <Badge
-                badgeContent={4}
-                secondary={true}
+            <Drawer
+              docked={false}
+              width={400}
+              open={this.state.open}
+              onRequestChange={(open) => this.setState({open})}
               >
-                <NotificationsIcon />
-              </Badge>
+                <Users
+                  following={this.props.following}
+                  deleteFollowing={this.props.deleteFollowing}
+                  getUserName={this.props.getUserName}
+                  followUser={this.props.followUser}
+                  userSearch={this.props.userSearch}
+                />
+                <MenuItem onTouchTap={this.handleClose}>Menu Item</MenuItem>
+                <MenuItem onTouchTap={this.handleClose}>Menu Item 2</MenuItem>
+              </Drawer>
             </div>
+            {/* End Drawer / Sidebar */}
 
-          </CardActions>
-          </Card>
-          </div>
+            {/* Cards */}
 
-          {/* Card Maybes */}
-          <div className="six columns">
-        <Card>
-          <CardHeader
-            title="Your Maybes"
-            subtitle="Might Go Shows"
-          />
-        <CardText>
-          Show Data Here
-        </CardText>
-        <CardActions>
-          <p>Followers</p>
-          <div className="ud-followers-badge">
-            <FlatButton disabled={true} label="Going" />
-            <Badge
-              badgeContent={10}
-              primary={true}
-            >
-              <NotificationsIcon />
-            </Badge>
-          </div>
-          <div className="ud-followers-badge">
-            <FlatButton disabled={true} label="Maybes" />
-            <Badge
-              badgeContent={4}
-              secondary={true}
-            >
-              <NotificationsIcon />
-            </Badge>
-          </div>
-        </CardActions>
-        </Card>
-        </div>
-        </div>
+            <div id="user-main-dash">
+              <div className="row ud-row-one">
+                <div className="four columns">
 
-        <div className="row ud-row-two">
-          <div className="six columns">
-        <Card>
-          <CardHeader
-            title="Suggestions"
-            subtitle="Followers are going"
-          />
-        <CardText>
-          Show Data Here
-        </CardText>
-        <CardActions>
-         <p>Followers</p>
-          <FlatButton label="Going" />
-          <FlatButton label="Action2" />
-        </CardActions>
-        </Card>
-        </div>
+                  {/* Card Attending */}
+                  <Card>
+                    <CardHeader
+                      title="Your Attending"
+                      subtitle="Confirmed Shows"
+                    />
+                    {this.props.going.map((event, index) => {
+                      return <CardText
+                        event={event}
+                        key={index}
+                        >
+                          <p>{event.artistName}</p>
+                          <p>{event.venueName}</p>
+                          <p>{event.exactDate}</p>
+                          <CardActions>
+                            <p>Followers</p>
+                            <div className="ud-followers-badge">
+                              <FlatButton disabled={true} label="Going" />
+                              <Badge
+                                badgeContent={event.attendeesGoing.length}
+                                primary={true}
+                                >
+                                  <NotificationsIcon />
+                                </Badge>
+                              </div>
+                              <div className="ud-followers-badge">
+                                <FlatButton disabled={true} label="Maybes" />
+                                <Badge
+                                  // badgeContent={event.attendeesMaybe.length}
+                                  secondary={true}
+                                  >
+                                    <NotificationsIcon />
+                                  </Badge>
+                                </div>
 
-        <div className="six columns">
-      <Card>
-        <CardHeader
-          title="Attended"
-          actAsExpander={true}
-          showExpandableButton={true}
-        />
-      <CardText expandable={true}>
-        Show Data Here
-      </CardText>
-      <CardActions>
-        <FlatButton label="Action1" />
-        <FlatButton label="Action2" />
-      </CardActions>
-      </Card>
-      </div>
-      </div>
+                              </CardActions>
+                            </CardText>
+                          })}
+                        </Card>
+                      </div>
+
+                      {/* Card Maybes */}
+                      <div className="four columns">
+                        <Card>
+                          <CardHeader
+                            title="Your Maybes"
+                            subtitle="Might Go Shows"
+                          />
+                          {this.props.maybe.map((event, index) => {
+                            return <CardText
+                              event={event}
+                              key={index}
+                              >
+                                <p>{event.artistName}</p>
+                                <p>{event.venueName}</p>
+                                <p>{event.exactDate}</p>
+                                <CardActions>
+                                  <p>Followers</p>
+                                  <div className="ud-followers-badge">
+                                    <FlatButton disabled={true} label="Going" />
+                                    <Badge
+                                      badgeContent={event.attendeesGoing.length}
+                                      primary={true}
+                                      >
+                                        <NotificationsIcon />
+                                      </Badge>
+                                    </div>
+                                    <div className="ud-followers-badge">
+                                      <FlatButton disabled={true} label="Maybes" />
+                                      <Badge
+                                        badgeContent={event.attendeesMaybe.length}
+                                        secondary={true}
+                                        >
+                                          <NotificationsIcon />
+                                        </Badge>
+                                      </div>
+                                    </CardActions>
+                                  </CardText>
+                                })}
+                              </Card>
+                            </div>
+
+                            <div className="four columns">
+                              <Card>
+                                <CardHeader
+                                  title="Attended"
+                                  actAsExpander={true}
+                                  showExpandableButton={true}
+                                />
+                                {this.props.attended.map((event, index) => {
+                                  return <CardText
+                                    event={event}
+                                    key={index}
+                                    >
+                                    <p>{event.artistName}</p>
+                                    <p>{event.venueName}</p>
+                                    <p>{event.exactDate}</p>
+                                  </CardText>
+                                })}
+                                <CardActions>
+                                  <FlatButton label="Action1" />
+                                  <FlatButton label="Action2" />
+                                </CardActions>
+                              </Card>
+                            </div>
+                          </div>
 
 
-        </div>
-        {/* End Card */}
-       </div>
-      </div>
-    );
-  }
-});
+                        </div>
+                        {/* End Card */}
+                      </div>
+                    </div>
+                  );
+                }
+              });
 
-export default UserDash;
+              export default UserDash;
