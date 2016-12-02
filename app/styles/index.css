@@ -4,14 +4,47 @@
 
 html, body, .row {
     height: 100%;
+    font-family: 'Helvetica', sans-serif;
 }
-
+/* Calendar*/
 div#month {
   margin:auto;
   display: inline-block;
-  /*float: right;*/
-  width: 69vw;
+  width: 100%;
   height: 66vh;
+}
+div.rbc-day-bg {
+  border-radius: 10%;
+  background-color: #eee;
+  margin: 20px;
+  min-width: 50px;
+  min-height: 50px;
+}
+.rbc-month-view{
+  border: 0;
+}
+.rbc-month-row + .rbc-month-row {
+  /*min-height: 150px;*/
+  min-width: 250px;
+  min-height: 50px;
+  border: 0;
+}
+.rbc-month-view, .rbc-header, .rbc-header
+.rbc-day-bg, .rbc-day-bg {
+  border-left: 0 !important;
+  border-bottom: 0 !important;
+}
+.rbc-date-cell {
+    font-size: 20px;
+    padding-right: 5px;
+    text-align: center;
+    min-height: 100px;
+    max-height: 50px;
+    line-height: 90px;
+}
+.rbc-toolbar button {
+  font-size: 1em;
+  border: 0;
 }
 div#shows {
   text-align: center;
