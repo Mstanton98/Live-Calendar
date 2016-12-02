@@ -45,6 +45,12 @@ const Signup = React.createClass({
     this.setState(nextState);
   },
 
+  handleClick(event) {
+    event.preventDefault();
+
+    return this.props.loginRender();
+  },
+
   render() {
     return (
 
@@ -123,6 +129,14 @@ const Signup = React.createClass({
               type="submit"
               name="action" >
               Submit
+            </button>
+            <button
+              style={styles.submit}
+              className="button six columns offset-by-three"
+              type="submit"
+              onClick={this.handleClick}
+              name="action" >
+              Back to Login
             </button>
             </div>
           </form>

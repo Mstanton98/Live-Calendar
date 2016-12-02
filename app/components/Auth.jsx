@@ -6,6 +6,12 @@ import Login from './Login';
 import Signup from './Signup';
 
 const Auth = React.createClass({
+  getInitialState() {
+    return {
+      login: true
+    }
+  },
+
   userLogin(user) {
     axios.post('/token', user)
       .then((res) => {
@@ -47,15 +53,41 @@ const Auth = React.createClass({
       });
   },
 
+  loginRender() {
+    this.setState({ login: true });
+  },
+
+  signupRender() {
+    this.setState({ login: false });
+  },
+
   render() {
+    let loginForm = null;
+    let signup = null;
+
+    if (this.state.login) {
+      loginForm = <Login
+        login={this.userLogin}
+        signupRender={this.signupRender}
+      />
+    }
+    else {
+      signup = <Signup
+        signup={this.userSignup}
+        loginRender={this.loginRender}
+     />
+    }
+
     return (
       <div id="Auth">
-        <Login
+        {loginForm}
+        {signup}
+        {/* <Login
           login={this.userLogin}
         />
         <Signup
           signup={this.userSignup}
-       />
+       /> */}
       </div>
     );
   }

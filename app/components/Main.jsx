@@ -234,7 +234,7 @@ const Main = React.createClass({
                   todaysEvents={this.state.todaysEvents}
                 />
           }/>
-          <Match pattern="/Auth" exactly render={
+          <Match pattern="/" exactly render={
               () =>
               <Auth
                 signup={this.userSignup}
