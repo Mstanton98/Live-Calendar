@@ -1,6 +1,11 @@
 * {
   box-sizing: border-box;
 }
+
+html, body, .row {
+    height: 100%;
+}
+
 div#month {
   margin:auto;
   display: inline-block;
@@ -26,4 +31,35 @@ div.row.ud-row-one, div.row.ud-row-two {
 }
 div.ud-followers-badge {
   display: inline-block;
+}
+div#login {
+  /*margin-top: 20px;
+  margin-bottom: 20px;*/
+  postion: absolute;
+  height: 100%;
+  line-height: 100%;
+  padding-bottom: 25px;
+}
+div#signup {
+  /*margin-top: 20px;
+  margin-bottom: 20px;*/
+  postion: absolute;
+  height: 100%;
+  line-height: 100%;
+}
+input#first_name {
+  position: relative;
+  display: block;
+  /*top: 10px;*/
+}
+div.five.columns {
+  margin-bottom: 20px;
+  display: block;
+  padding-top: 25px;
+  margin: auto 0;
+  line-height: 50%;
+  height: 50%;
+}
+div.twelve.columns {
+padding-top: 20px;
 }
