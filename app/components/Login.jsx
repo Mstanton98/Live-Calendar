@@ -1,6 +1,7 @@
 import React from 'react';
 import { white, red100, red200, red300, grey100, grey500, grey900 } from 'material-ui/styles/colors';
 
+
 const styles = {
   signup: {
   },
@@ -43,7 +44,7 @@ const Login = React.createClass({
     return (
 
       <div id="login" className="columns offset-by-four">
-      <img className="image" src={`../img/posters.png`} />
+      {/* <img id="image" className="twelve columns" src={PosterImage}/> */}
       <div className="four columns" style={styles.signup}>
         <form onSubmit={this.handleSubmit}>
           <div className="row">

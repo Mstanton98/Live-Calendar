@@ -8,7 +8,6 @@ html, body, .row {
 }
 /* Navbar */
 div#navbar{
-font-family: monospace;
 text-transform: uppercase;
 font-size: 1em !important;
 }
@@ -92,13 +91,10 @@ button.button.six.columns.offset-by-three.btn {
   padding: 0;
 }
 div#Auth{
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+  width: 100%;
+  height: 100%;
 }
 div#login {
-  background-image: url('../img/posters.png');
   postion: absolute;
   height: 100%;
   line-height: 100%;
@@ -118,7 +114,8 @@ input#first_name {
 }
 div.four.columns {
   top: 33%;
-  background-color: #eee;
+  opacity: 0.85;
+  background-color: #fff;
   margin-top: -25%;
   position: absolute;
   margin-bottom: 20px;
@@ -130,7 +127,8 @@ div.four.columns {
 }
 div.four.columns.sign {
   top: 15%;
-  background-color: #eee;
+  opacity: 0.95;
+  background-color: #fff;
   margin-top: -25%;
   position: absolute;
   margin-bottom: 20px;
@@ -147,4 +145,37 @@ label {
   text-transform: uppercase;
   font-size: 0.5em;
   font-weight: bolder;
+}
+
+/* background images auth */
+img#image {
+  display: inline-flex;
+  width: 100%;
+  height: 100%;
+}
+
+img {
+  box-sizing: border-box;
+  width: 100%  !important;
+  height: 100% !important;
+}
+
+#masonry-column-container {
+    box-sizing: border-box;
+    break-inside: avoid;
+    margin: 1.5em 0;
+    padding: 0;
+    column-count: 6;
+    column-fill: auto;
+    column-gap: 1.5em;
+}
+
+.brick-item {
+    display: inline-block;
+    background: #eee;
+    padding: 1em;
+    margin: 0 0 1.5em;
+    width: 100%;
+    box-sizing: border-box;
+    box-shadow: 2px 2px 4px 0 #bbb;
 }
