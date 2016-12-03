@@ -125,7 +125,7 @@ div.three.columns {
   line-height: 100%;
 }
 
-div.three.columns.sign {
+div.four.columns.sign {
   top: 25%;
   opacity: 0.95;
   background-color: #fff;
@@ -133,7 +133,7 @@ div.three.columns.sign {
   position: absolute;
   margin-bottom: 20px;
   display: block;
-  padding-top: 5px;
+  padding-top: 15px;
   margin: 0 auto;
   line-height: 100%;
 }
