@@ -8,7 +8,9 @@ html, body, .row {
 }
 /* Navbar */
 div#navbar{
-  
+font-family: monospace;
+text-transform: uppercase;
+font-size: 1em !important;
 }
 /* Calendar*/
 div#month {
@@ -54,8 +56,6 @@ div.rbc-day-bg {
 }
 div#shows {
   text-align: center;
-  /*margin: auto;*/
-  /*width: inherit;*/
 }
 span.date-time-title{
   display: inline-block;
@@ -75,33 +75,39 @@ div.six.columns {
 background-color: #eee;
 margin-top: 10%;
 }
-/*login*/
+
+/* login / signup */
 button.button.six.columns.offset-by-three {
   background-color: #000;
   color: white;
 }
 button.button.six.columns.offset-by-three.backto {
-  background-color:#202020;
-  color: white;
+  font-size: 8px;
+  text-align: center;
+  padding: 0;
+}
+button.button.six.columns.offset-by-three.btn {
+  font-size: 8px;
+  text-align: center;
+  padding: 0;
 }
 div#Auth{
-  background: url(components/img/posters.png) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
 }
 div#login {
-  /*margin-top: 20px;
-  margin-bottom: 20px;*/
+  background-image: url('../img/posters.png');
   postion: absolute;
   height: 100%;
   line-height: 100%;
   padding-bottom: 25px;
 }
+div.twelve.columns {
+  padding: 0;
+}
 div#signup {
-  /*margin-top: 20px;
-  margin-bottom: 20px;*/
   postion: absolute;
   height: 100%;
   line-height: 100%;
@@ -110,13 +116,14 @@ input#first_name {
   position: relative;
   display: block;
 }
-div.five.columns {
+div.four.columns {
   top: 33%;
   background-color: #eee;
   margin-top: -25%;
   position: absolute;
   margin-bottom: 20px;
   display: block;
+  padding-bottom: 25px;
   padding-top: 25px;
   margin: 0 auto;
   line-height: 100%;
@@ -134,4 +141,10 @@ div.four.columns.sign {
 }
 div.twelve.columns {
 padding-top: 20px;
+}
+label {
+  padding: 0;
+  text-transform: uppercase;
+  font-size: 0.5em;
+  font-weight: bolder;
 }

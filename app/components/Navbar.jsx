@@ -58,7 +58,6 @@ const Navbar = React.createClass({
         <Link to="/UserDash"><MenuItem primaryText="Dashboard" /></Link>
         <Link to="/"><MenuItem primaryText="Sign Out" onClick={this.handleClick} /></Link>
 
-
       </IconMenu>
       </div>
     );
@@ -69,7 +68,7 @@ const Navbar = React.createClass({
         <div id="navbar">
         <AppBar
           style={styles.navbar}
-          title="Live!Calendar"
+          title="Live! Calendar"
           iconElementRight={this.state.logged ? <Logged /> : <Login />}
         />
       </div>
