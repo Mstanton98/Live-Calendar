@@ -54,12 +54,12 @@ const Signup = React.createClass({
   render() {
     return (
 
-      <div id="sign-up" className="offset-by-five columns">
+      <div id="sign-up" className="offset-by-four columns">
         <div className="three columns sign" style={styles.signup}>
           <form onSubmit={this.handleSubmit}>
             <div className="row">
               <div
-                className="twelve columns"
+                className="twelve columns sign"
                 style={styles.input}>
                 <label className="six columns offset-by-three">First Name</label>
                 <input
@@ -71,7 +71,7 @@ const Signup = React.createClass({
                   name="firstName"
                 />
               </div>
-              <div className="twelve columns">
+              <div className="twelve columns sign">
                 <label className="six columns offset-by-three">Last Name</label>
                 <input
                   className="input-field six columns offset-by-three"
@@ -83,7 +83,7 @@ const Signup = React.createClass({
                 />
 
               </div>
-              <div className="twelve columns">
+              <div className="twelve columns sign">
                 <label className="six columns offset-by-three">Username</label>
                 <input
                   className="input-field six columns offset-by-three"
@@ -98,7 +98,7 @@ const Signup = React.createClass({
             </div>
             <div className="row">
 
-              <div className="twelve columns">
+              <div className="twelve columns sign">
                 <label className="six columns offset-by-three">Email</label>
                 <input
                   className="input-field six columns offset-by-three"
@@ -111,7 +111,7 @@ const Signup = React.createClass({
 
               </div>
 
-              <div className="twelve columns">
+              <div className="twelve columns sign">
                 <label className="six columns offset-by-three">Password</label>
                 <input
                   className="input-field six columns offset-by-three"

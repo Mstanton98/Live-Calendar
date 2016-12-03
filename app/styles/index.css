@@ -82,20 +82,7 @@ margin-top: 10%;
 }
 
 /* login / signup */
-button.button.six.columns.offset-by-three {
-  background-color: #000;
-  color: white;
-}
-button.button.six.columns.offset-by-three.backto {
-  font-size: 8px;
-  text-align: center;
-  padding: 0;
-}
-button.button.six.columns.offset-by-three.btn {
-  font-size: 8px;
-  text-align: center;
-  padding: 0;
-}
+
 div#Auth{
   width: 100%;
   height: 100%;
@@ -114,7 +101,7 @@ div.twelve.columns {
 div#signup {
   postion: absolute;
   margin: 0 auto;
-  margin-left: 39%;
+  margin-left: 39% !important;
   height: 100%;
   line-height: 100%;
 }
@@ -135,8 +122,8 @@ div.three.columns {
   margin: 0 auto;
   line-height: 100%;
 }
-div.three.columns.sign {
-  top: 15%;
+.three.columns.sign {
+  top: 25%;
   opacity: 0.95;
   background-color: #fff;
   margin-top: -25%;
@@ -150,11 +137,28 @@ div.three.columns.sign {
 div.twelve.columns {
 padding-top: 20px;
 }
+div.twelve.columns.sign {
+padding-top: 2px;
+}
 label {
   padding: 0;
   text-transform: uppercase;
   font-size: 0.5em;
   font-weight: bolder;
+}
+button.button.six.columns.offset-by-three {
+  background-color: #000;
+  color: white;
+}
+button.button.six.columns.offset-by-three.backto {
+  font-size: 8px;
+  text-align: center;
+  padding: 0;
+}
+button.button.six.columns.offset-by-three.btn {
+  font-size: 8px;
+  text-align: center;
+  padding: 0;
 }
 
 /* background images auth */
