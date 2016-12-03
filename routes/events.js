@@ -27,7 +27,7 @@ const authorize = function(req, res, next) {
 router.get('/events', authorize, (_req, res, next) => {
   const date = moment().format();
 
-  request(`http://api.jambase.com/events?zipCode=98034&radius=50&startDate=${date}&page=0&api_key=jfjppb349bzsu36z5qkk8wqb`, (err, response, body) => {
+  request(`http://api.jambase.com/events?zipCode=98034&radius=50&startDate=${date}&page=0&api_key=43ehdm6jvxd5a7fb9xk8wm44`, (err, response, body) => {
     if (err) {
       return next(boom.create(400, 'Bad Request'));
     }

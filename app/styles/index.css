@@ -7,9 +7,15 @@ html, body, .row {
     font-family: 'Helvetica', sans-serif;
 }
 /* Navbar */
-div#navbar{
-text-transform: uppercase;
-font-size: 1em !important;
+div#navbar h1{
+
+font-family: 'Special Elite', cursive;
+font-size: 1.5em !important;
+padding-top: 17.5px;
+}
+div#navbar {
+  height: 35px;
+  line-height: 35px;
 }
 /* Calendar*/
 div#month {
@@ -96,6 +102,8 @@ div#Auth{
 }
 div#login {
   postion: absolute;
+  margin: 0 auto;
+  margin-left: 39%;
   height: 100%;
   line-height: 100%;
   padding-bottom: 25px;
@@ -105,6 +113,8 @@ div.twelve.columns {
 }
 div#signup {
   postion: absolute;
+  margin: 0 auto;
+  margin-left: 39%;
   height: 100%;
   line-height: 100%;
 }
@@ -112,9 +122,9 @@ input#first_name {
   position: relative;
   display: block;
 }
-div.four.columns {
-  top: 33%;
-  opacity: 0.85;
+div.three.columns {
+  top: 25%;
+  opacity: 0.925;
   background-color: #fff;
   margin-top: -25%;
   position: absolute;
@@ -125,7 +135,7 @@ div.four.columns {
   margin: 0 auto;
   line-height: 100%;
 }
-div.four.columns.sign {
+div.three.columns.sign {
   top: 15%;
   opacity: 0.95;
   background-color: #fff;
@@ -178,4 +188,8 @@ img {
     width: 100%;
     box-sizing: border-box;
     box-shadow: 2px 2px 4px 0 #bbb;
+}
+div#wrapper {
+  /*top: 50%;*/
+  transform: translateY(7%);
 }
