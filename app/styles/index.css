@@ -8,21 +8,21 @@ html, body, .row {
 }
 /* Navbar */
 div#navbar h1{
-
-font-family: 'Special Elite', cursive;
-font-size: 1.5em !important;
+font-family: 'Sue Ellen Francisco', cursive;
+font-size: 2em !important;
 padding-top: 17.5px;
 }
 div#navbar {
   height: 35px;
   line-height: 35px;
+  margin-bottom: 5%;
 }
 /* Calendar*/
 div#month {
   margin:auto;
   display: inline-block;
   width: 100%;
-  height: 66vh;
+  height: 75vh;
 }
 div.rbc-day-bg {
   border-radius: 10%;
@@ -46,14 +46,20 @@ div.rbc-day-bg {
   border-bottom: 0 !important;
 }
 .rbc-date-cell {
-    display: inline-flex;
+    margin: auto;
     justify-content: center;
+    display: inline-flex;
     font-size: 20px;
-    padding-right: 5px;
     text-align: center;
     min-height: 100px;
-    max-height: 50px;
-    line-height: 90px;
+    align-self: auto;
+    max-height: 100px;
+    display: flex;
+    align-items: center;
+    vertical-align: middle;
+}
+.rbc-date-cell:hover {
+  color: #bbb;
 }
 .rbc-toolbar button {
   font-size: 1em;
@@ -67,6 +73,9 @@ span.date-time-title{
 }
 button.ticket-link, a.venue-link{
   display: inline-block;
+}
+div#showfeed {
+  margin: 5% 0 5% 0;
 }
 
 /*Usersdash*/
@@ -95,19 +104,12 @@ div#login {
   line-height: 100%;
   padding-bottom: 25px;
 }
-div.twelve.columns {
-  padding: 0;
-}
 div#signup {
   postion: absolute;
   margin: 0 auto;
   margin-left: 39% !important;
   height: 100%;
   line-height: 100%;
-}
-input#first_name {
-  position: relative;
-  display: block;
 }
 div.three.columns {
   top: 25%;
@@ -122,7 +124,8 @@ div.three.columns {
   margin: 0 auto;
   line-height: 100%;
 }
-.three.columns.sign {
+
+div.three.columns.sign {
   top: 25%;
   opacity: 0.95;
   background-color: #fff;
@@ -130,12 +133,16 @@ div.three.columns {
   position: absolute;
   margin-bottom: 20px;
   display: block;
-  padding-top: 25px;
+  padding-top: 5px;
   margin: 0 auto;
   line-height: 100%;
 }
 div.twelve.columns {
-padding-top: 20px;
+  padding: 0;
+  /*padding-top: 20px;*/
+}
+div.twelve.columns.sign {
+  padding-top: 5px;
 }
 div.twelve.columns.sign {
 padding-top: 2px;
