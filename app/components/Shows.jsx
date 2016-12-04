@@ -19,6 +19,7 @@ const Shows = React.createClass({
                 <Show
                   postEvent={this.props.postEvent}
                   event={event}
+
                 />
           </div>
           })}

@@ -66,18 +66,39 @@ div.rbc-day-bg {
   border: 0;
 }
 div#shows {
-  text-align: center;
+  text-align: left;
 }
+div#show div button{
+  text-align: right;
+}
+
 span.date-time-title{
   display: inline-block;
 }
 button.ticket-link, a.venue-link{
   display: inline-block;
 }
-div#showfeed {
+div#showfeed > span{
   margin: 5% 0 5% 0;
 }
-
+div.card-action {
+    text-align: right;
+}
+div.card-action div {
+    background: #000;
+    color: #fff !important;
+}
+div#shows div.card-action div {
+    text-align: right;
+}
+button.maybe-button div {
+  background: #FF4081 !important;
+  color: #000 !important;
+}
+button.go-button div {
+  background: #00BCD4 !important;
+  color: #000 !important;
+}
 /*Usersdash*/
 div.row.ud-row-one, div.row.ud-row-two {
   margin: 50px 0 20px 0;
@@ -139,7 +160,6 @@ div.four.columns.sign {
 }
 div.twelve.columns {
   padding: 0;
-  /*padding-top: 20px;*/
 }
 div.twelve.columns.sign {
   padding-top: 5px;
@@ -168,7 +188,7 @@ button.button.six.columns.offset-by-three.btn {
   padding: 0;
 }
 
-/* background images auth */
+/* background poster images / auth */
 img#image {
   display: inline-flex;
   width: 100%;
@@ -201,6 +221,5 @@ img {
     box-shadow: 2px 2px 4px 0 #bbb;
 }
 div#wrapper {
-  /*top: 50%;*/
   transform: translateY(4%);
 }
