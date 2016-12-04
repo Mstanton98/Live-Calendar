@@ -71,33 +71,42 @@ const UserDash = React.createClass({
                   {/* Card Attending */}
                   <Card>
                     <CardHeader
-                      title="You're Attending"
-                      subtitle="Confirmed Shows"
+                      id="card-head-attend"
+                      title="I'm Going!"
+                      subtitle="Confirmed Going"
                     />
                     {this.props.going.map((event, index) => {
                       return <CardText
+                        id="card-text-attend"
                         event={event}
                         key={index}
                         >
-                          <p>{event.artistName}</p>
+                          <span>{event.artistName}</span>
                           <p>{event.venueName}</p>
-                          <p>{event.exactDate}</p>
-                          <CardActions>
-                            <p>Followers</p>
+                          <p>Date: {event.exactDate}</p>
+                          <CardActions id="card-action-attend">
+                            {/* <p>Followers</p> */}
                             <div className="ud-followers-badge">
                               <FlatButton disabled={true} label="Going" />
                               <Badge
+                                id="ud-going-follow-badge-go"
                                 badgeContent={event.attendeesGoing.length}
                                 primary={true}
+                                className="followers-going"
                                 >
                                   <NotificationsIcon />
                                 </Badge>
                               </div>
                               <div className="ud-followers-badge">
-                                <FlatButton disabled={true} label="Maybes" />
+                                <FlatButton
+                                  disabled={true}
+                                  label="Maybes"
+                                />
                                 <Badge
+                                  id="ud-going-follow-badge-maybe"
                                   // badgeContent={event.attendeesMaybe.length}
                                   secondary={true}
+                                  className="followers-maybes"
                                   >
                                     <NotificationsIcon />
                                   </Badge>
@@ -113,41 +122,46 @@ const UserDash = React.createClass({
                       <div className="six columns">
                         <Card>
                           <CardHeader
-                            title="Your Maybes"
-                            subtitle="Might Go Shows"
+                            id="card-head-maybe"
+                            title="Maybe"
+                            subtitle="Might Go"
                           />
                           {this.props.maybe.map((event, index) => {
                             return <CardText
+                              id="card-text-maybe"
                               event={event}
                               key={index}
                               >
-                                <p>{event.artistName}</p>
-                                <p>{event.venueName}</p>
-                                <p>{event.exactDate}</p>
-                                <CardActions>
-                                  <p>Followers</p>
+                              <span>{event.artistName}</span>
+                              <p>{event.venueName}</p>
+                              <p>Date: {event.exactDate}</p>
+                              <CardActions id="card-action-maybe">
+                                <div className="ud-followers-badge">
+                                  <FlatButton disabled={true} label="Going" />
+                                  <Badge
+                                    id="ud-maybes-follow-badge-go"
+                                    badgeContent={event.attendeesGoing.length}
+                                    primary={true}
+                                    >
+                                      <NotificationsIcon
+                                      />
+                                    </Badge>
+                                  </div>
                                   <div className="ud-followers-badge">
-                                    <FlatButton disabled={true} label="Going" />
+                                    <FlatButton disabled={true} label="Maybes" />
                                     <Badge
-                                      badgeContent={event.attendeesGoing.length}
-                                      primary={true}
+                                      id="ud-maybes-follow-badge-maybe"
+                                      badgeContent={event.attendeesMaybe.length}
+                                      secondary={true}
                                       >
                                         <NotificationsIcon />
                                       </Badge>
                                     </div>
-                                    <div className="ud-followers-badge">
-                                      <FlatButton disabled={true} label="Maybes" />
-                                      <Badge
-                                        badgeContent={event.attendeesMaybe.length}
-                                        secondary={true}
-                                        >
-                                          <NotificationsIcon />
-                                        </Badge>
-                                      </div>
-                                    </CardActions>
+                                  </CardActions>
                                   </CardText>
                                 })}
                               </Card>
+                               <div></div>
                             </div>
 
                             <div className="row">
@@ -169,16 +183,18 @@ const UserDash = React.createClass({
                                   </CardText>
                                 })}
                               </Card>
-                            </div>
-                          </div>
-                        </div>
 
-                        </div>
+                            </div>
+                            </div>
+              </div>
+
+            </div>
                         {/* End Card */}
-                      </div>
-                    </div>
-                  );
-                }
-              });
+
+        </div>
+      </div>
+    );
+  }
+});
 
               export default UserDash;
