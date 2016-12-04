@@ -5,11 +5,13 @@
 html, body, .row {
     height: 100%;
     font-family: 'Helvetica', sans-serif;
+    background-color: #f9f9f9;
 }
 /* Navbar */
 div#navbar h1{
 font-family: 'Sue Ellen Francisco', cursive;
 font-size: 2em !important;
+color: #f9f9f9 !important;
 padding-top: 17.5px;
 }
 div#navbar {
@@ -31,6 +33,9 @@ div.rbc-day-bg {
   min-width: 50px;
   min-height: 50px;
 }
+div.rbc-day-bg:hover {
+ background-color: #d7c770;
+}
 .rbc-month-view{
   border: 0;
 }
@@ -45,6 +50,27 @@ div.rbc-day-bg {
   border-left: 0 !important;
   border-bottom: 0 !important;
 }
+.rbc-date-cell.rbc-now {
+    font-weight: bold;
+    color: #E4A158;
+}
+.rbc-day-bg {
+    color: #b3872a;
+}
+.rbc-row.rbc-month-header {
+    color: #a9a9a9;
+}
+.rbc-toolbar .rbc-toolbar-label {
+    width: 100%;
+    padding: 0 10px;
+    text-align: right;
+    font-weight: 700;
+    margin-right: 1%;
+    color: #E4A158;
+    font-family: 'Sue Ellen Francisco', cursive;
+    font-size: 1.5em;
+}
+
 .rbc-date-cell {
     margin: auto;
     justify-content: center;
@@ -59,7 +85,9 @@ div.rbc-day-bg {
     vertical-align: middle;
 }
 .rbc-date-cell:hover {
-  color: #bbb;
+  color: #b39e2a;
+  /*transition: all .2s ease-in-out;
+  transform: scale(1.33);*/
 }
 .rbc-toolbar button {
   font-size: 1em;
@@ -78,6 +106,10 @@ span.date-time-title{
 button.ticket-link, a.venue-link{
   display: inline-block;
 }
+div#showfeed div{
+  background: #f9f9f9;
+  text-align: left;
+}
 div#showfeed > span{
   margin: 5% 0 5% 0;
 }
@@ -92,11 +124,11 @@ div#shows div.card-action div {
     text-align: right;
 }
 button.maybe-button div {
-  background: #FF4081 !important;
+  background: #e8deac !important;
   color: #000 !important;
 }
 button.go-button div {
-  background: #00BCD4 !important;
+  background: #c4ae37 !important;
   color: #000 !important;
 }
 /*Usersdash*/
@@ -160,6 +192,7 @@ div.four.columns.sign {
 }
 div.twelve.columns {
   padding: 0;
+  margin-bottom: 2%;
 }
 div.twelve.columns.sign {
   padding-top: 5px;
@@ -222,4 +255,8 @@ img {
 }
 div#wrapper {
   transform: translateY(4%);
+}
+
+@media (min-width: 600px) and (max-width: 950px) {
+  /*html { background: red; }*/
 }
