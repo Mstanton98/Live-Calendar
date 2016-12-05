@@ -192,6 +192,16 @@ div#Auth{
   height: 100%;
   overflow: hidden;
 }
+div#overlay {
+  /*top: 0;
+  left: 0;
+  margin: 0;
+  padding: 0;
+  position: sticky;
+  background-color: rgba(64,224,168,0.5);
+  background-size: cover;
+  z-index: 1 !important;*/
+}
 div#login {
   postion: absolute;
   margin: 0 auto;
@@ -278,6 +288,7 @@ img {
 }
 
 #masonry-column-container {
+
     box-sizing: border-box;
     break-inside: avoid;
     margin: 1.5em 0;
@@ -297,7 +308,8 @@ img {
     box-shadow: 2px 2px 4px 0 #bbb;
 }
 div#wrapper {
-  transform: translateY(4%);
+  /*transform: translateY(4%);*/
+
 }
 
 @media (min-width: 600px) and (max-width: 950px) {

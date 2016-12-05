@@ -101,9 +101,10 @@ const Auth = React.createClass({
     }
 
     return (
+      <div id="overlay">
       <div id="Auth">
-        <div id="wrapper">
 
+        <div id="wrapper">
           <div id="masonry-column-container">
             <div className="brick-item">
               <img className="twelve columns" src={PosterImage1} />
@@ -160,9 +161,10 @@ const Auth = React.createClass({
               <img className="twelve columns" src={PosterImage18} />
             </div>
           </div>
-        </div>
+         </div>
         {loginForm}
         {signup}
+        </div>
       </div>
     );
   }
