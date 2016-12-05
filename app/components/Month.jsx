@@ -71,6 +71,7 @@ const Month = React.createClass({
             title="Dialog With Actions"
             modal={false}
             open={this.state.open}
+            autoScrollBodyContent={true}
             onRequestClose={this.handleClose}
             >
               <Days

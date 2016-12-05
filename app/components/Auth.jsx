@@ -101,21 +101,6 @@ const Auth = React.createClass({
       <div id="Auth">
         {loginForm}
         {signup}
-        <Snackbar
-           open={this.state.open1}
-           message="Account created!"
-           autoHideDuration={4000}
-         />
-         <Snackbar
-            open={this.state.open}
-            message="User logged in!"
-            autoHideDuration={4000}
-          />
-         <Snackbar
-           open={this.state.open2}
-           message="Something went wrong, please try again."
-           autoHideDuration={4000}
-         />
       </div>
     );
   }

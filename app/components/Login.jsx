@@ -41,7 +41,6 @@ const Login = React.createClass({
 
   render() {
     return (
-
       <div id="login" className="ten columns offset-by-four">
       <div className="five columns" style={styles.signup}>
         <form onSubmit={this.handleSubmit}>

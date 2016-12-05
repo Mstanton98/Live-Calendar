@@ -98,7 +98,7 @@ const UserDash = React.createClass({
                               <div className="ud-followers-badge">
                                 <FlatButton disabled={true} label="Maybes" />
                                 <Badge
-                                  // badgeContent={event.attendeesMaybe.length}
+                                  badgeContent={event.attendeesMaybe.length}
                                   secondary={true}
                                   >
                                     <NotificationsIcon />
@@ -178,16 +178,6 @@ const UserDash = React.createClass({
                         </div>
                         {/* End Card */}
                       </div>
-                      <Snackbar
-         open={this.props.open}
-         message="User followed!"
-         autoHideDuration={4000}
-       />
-       <Snackbar
-         open={this.props.open1}
-         message="User not found."
-         autoHideDuration={4000}
-       />
                     </div>
                   );
                 }
