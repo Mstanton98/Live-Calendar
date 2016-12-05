@@ -82,7 +82,7 @@ const Login = React.createClass({
             className="button six columns offset-by-three"
             type="submit"
             name="action" >
-            Submit
+            Login
           </button>
           <button
             style={styles.submit}
@@ -90,13 +90,11 @@ const Login = React.createClass({
             type="submit"
             onClick={this.handleClick}
             name="action" >
-            Need an account?
+            Sign Up!
           </button>
         </form>
       </div>
- </div>
-
-
+      </div>
     );
   }
 });

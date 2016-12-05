@@ -71,7 +71,7 @@ const Navbar = React.createClass({
           title="Live! Music Calendar"
           iconElementRight={this.state.logged ? <Logged /> : <Login />}
         />
-      </div>
+        </div>
     );
   }
 });
