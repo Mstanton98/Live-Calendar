@@ -1,7 +1,11 @@
 import React from 'react';
 import Shows from './Shows';
 
-
+const styles= {
+  text: {
+    textAlign: 'left'
+  }
+};
 
 const Showfeed = React.createClass({
 
@@ -12,6 +16,7 @@ const Showfeed = React.createClass({
         <Shows
           postEvent={this.props.postEvent}
           todaysEvents={this.props.todaysEvents}
+          styles={styles.text}
        />
 
       </div>

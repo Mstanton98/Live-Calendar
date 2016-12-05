@@ -15,25 +15,25 @@ const App = React.createClass({
     }
   },
 
-    authCheck() {
-      axios.get('/token')
-        .then((res) => {
-          console.log(res.data);
-          if (res) {
-          this.setState({ loggedIn: true });
-          }
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    },
+  authCheck() {
+    axios.get('/token')
+    .then((res) => {
+      console.log(res.data);
+      if (res) {
+        this.setState({ loggedIn: true });
+      }
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+  },
 
-    signOut() {
-      return axios.delete('/token')
-      .catch((err) => {
-        console.log(err);
-      });
-    },
+  signOut() {
+    return axios.delete('/token')
+    .catch((err) => {
+      console.log(err);
+    });
+  },
 
   render() {
     return (
@@ -44,11 +44,11 @@ const App = React.createClass({
               signOut={this.signOut}
               authCheck={this.authCheck}
               isLoggedIn={this.state.isLoggedIn}
-           />
+            />
             <Main
               authCheck={this.authCheck}
               isLoggedIn={this.state.isLoggedIn}
-           />
+            />
           </div>
         </BrowserRouter>
       </MuiThemeProvider>

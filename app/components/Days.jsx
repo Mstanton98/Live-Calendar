@@ -9,27 +9,27 @@ const Days = React.createClass({
     return (
 
       <div> <Card>
-         <CardHeader
-           title="Today's Shows"
-           actAsExpander={true}
-           showExpandableButton={true}
-         />
-         <CardText expandable={true}>
-         {this.props.todaysEvents.map((event, index) => {
-           return <div id="shows" key={index}>
-                 <Day
-                   postEvent={this.props.postEvent}
-                   event={event}
-                 />
-           </div>
-           })}
-         </CardText>
-         </Card>
+        <CardHeader
+          title="Today's Shows"
+          actAsExpander={true}
+          showExpandableButton={true}
+        />
+        <CardText expandable={true}>
+          {this.props.todaysEvents.map((event, index) => {
+            return <div id="shows" key={index}>
+              <Day
+                postEvent={this.props.postEvent}
+                event={event}
+              />
+            </div>
+          })}
+        </CardText>
+      </Card>
 
-      </div>
+    </div>
 
-    );
-  }
+  );
+}
 });
 
 export default Days;

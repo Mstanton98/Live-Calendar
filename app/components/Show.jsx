@@ -44,25 +44,33 @@ const Show = React.createClass({
         />
         <CardText expandable={true}>
         <div className="card-content black-text">
+        <div className="card-action">
+          <FlatButton
+          label="Tickets"
+          href={this.props.event.ticketUrl}
+        />
+        </div>
           <div className="date-time-title">{this.props.event.date}</div>
         </div>
-        <div className="card-action">
-          <FlatButton label="Tickets" href={this.props.event.ticketUrl} />
-        </div>
+
         </CardText>
         <CardActions>
+
         <FlatButton
+          className="go-button"
           label="Going"
           name="Going"
           value={this.props.event}
           onClick={this.handleClickGoing}
         />
         <FlatButton
+          className="maybe-button"
           label="Maybe"
           name="Maybe"
           value={this.props.event}
           onClick={this.handleClickMaybe}
         />
+
         </CardActions>
         </Card>
         </div>

@@ -14,16 +14,16 @@ const Calendar = React.createClass({
               <Showfeed
                 postEvent={this.props.postEvent}
                 todaysEvents={this.props.todaysEvents}
-             />
+              />
             </div>
             <div id="month" className="twelve columns">
               <Month
                 postEvent={this.props.postEvent}
                 events={this.props.events}
-             />
+              />
             </div>
           </div>
-         </div>
+        </div>
       </div>
     );
   }

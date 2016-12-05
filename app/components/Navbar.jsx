@@ -44,36 +44,35 @@ const Navbar = React.createClass({
 
     const Logged = (props) => (
       <div>
-      <IconMenu
-        {...props}
-        iconButtonElement={
-          <IconButton><MoreVertIcon /></IconButton>
-        }
-        targetOrigin={{horizontal: 'right', vertical: 'top'}}
-        anchorOrigin={{horizontal: 'right', vertical: 'top'}}
-      >
-        <Link to="/"><MenuItem primaryText="Login" /></Link>
-        <Link to="/Calendar"><MenuItem primaryText="Calendar" /></Link>
-        <Link to="/UserDash"><MenuItem primaryText="Dashboard" /></Link>
-        <Link to="/"><MenuItem primaryText="Sign Out" onClick={this.handleClick} /></Link>
+        <IconMenu
+          {...props}
+          iconButtonElement={
+            <IconButton><MoreVertIcon /></IconButton>
+          }
+          targetOrigin={{horizontal: 'right', vertical: 'top'}}
+          anchorOrigin={{horizontal: 'right', vertical: 'top'}}
+          >
+            <Link to="/"><MenuItem primaryText="Login" /></Link>
+            <Link to="/Calendar"><MenuItem primaryText="Calendar" /></Link>
+            <Link to="/UserDash"><MenuItem primaryText="Dashboard" /></Link>
+            <Link to="/"><MenuItem primaryText="Sign Out" onClick={this.handleClick} /></Link>
 
+          </IconMenu>
+        </div>
+      );
 
-      </IconMenu>
-      </div>
-    );
+      Logged.muiName = 'IconMenu';
 
-    Logged.muiName = 'IconMenu';
-
-    return (
+      return (
         <div id="navbar">
-        <AppBar
-          style={styles.navbar}
-          title="Live!Calendar"
-          iconElementRight={this.state.logged ? <Logged /> : <Login />}
-        />
-      </div>
-    );
-  }
-});
+          <AppBar
+            style={styles.navbar}
+            title="Live! Music Calendar"
+            iconElementRight={this.state.logged ? <Logged /> : <Login />}
+          />
+        </div>
+      );
+    }
+  });
 
-export default Navbar;
+  export default Navbar;

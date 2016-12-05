@@ -11,7 +11,7 @@ const Header = React.createClass({
           authCheck={this.props.authCheck}
           isLoggedIn={this.props.isLoggedIn}
           signOut={this.props.signOut}
-       />
+        />
       </div>
 
     );
