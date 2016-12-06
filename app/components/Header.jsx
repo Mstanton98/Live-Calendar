@@ -8,7 +8,6 @@ const Header = React.createClass({
 
       <div>
         <Navbar
-          authCheck={this.props.authCheck}
           isLoggedIn={this.props.isLoggedIn}
           signOut={this.props.signOut}
         />

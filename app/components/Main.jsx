@@ -65,8 +65,6 @@ const Main = React.createClass({
     .catch((err) => {
       this.setState({loadErr: err});
     });
-
-    return this.props.authCheck();
   },
 
   postEvent(event) {
@@ -266,7 +264,6 @@ const Main = React.createClass({
               <Redirect to="/" />
             ) : (
               <UserDash
-                authCheck={this.props.authCheck}
                 going={this.state.going}
                 maybe={this.state.maybe}
                 attended={this.state.attended}

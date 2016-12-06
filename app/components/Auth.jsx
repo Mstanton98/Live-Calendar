@@ -44,7 +44,6 @@ const Auth = React.createClass({
     axios.post('/token', user)
       .then((res) => {
         if (res) {
-          // this.props.authCheck();
           this.setState({ open: true });
           window.location.pathname = '/Calendar';
         }
@@ -70,7 +69,6 @@ const Auth = React.createClass({
           })
           .then((response) => {
             if (response) {
-              // this.props.authCheck();
               this.setState({ open1: true });
               window.location.pathname = '/Calendar';
             }

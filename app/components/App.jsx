@@ -15,19 +15,6 @@ const App = React.createClass({
     }
   },
 
-  authCheck() {
-    axios.get('/token')
-    .then((res) => {
-      console.log(res.data);
-      if (res) {
-        this.setState({ loggedIn: true });
-      }
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-  },
-
   signOut() {
     return axios.delete('/token')
     .catch((err) => {
@@ -42,11 +29,9 @@ const App = React.createClass({
           <div>
             <Header
               signOut={this.signOut}
-              authCheck={this.authCheck}
               isLoggedIn={this.state.isLoggedIn}
             />
             <Main
-              authCheck={this.authCheck}
               isLoggedIn={this.state.isLoggedIn}
             />
           </div>
