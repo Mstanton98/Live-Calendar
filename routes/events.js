@@ -7,7 +7,7 @@ const boom = require('boom');
 const express = require('express');
 const knex = require('../knex');
 const request = require('request');
-const moment = require('moment');
+const moment = require('moment-timezone');
 const jwt = require('jsonwebtoken');
 const { camelizeKeys, decamelizeKeys } = require('humps');
 
@@ -25,7 +25,7 @@ const authorize = function(req, res, next) {
 };
 
 router.get('/events', authorize, (_req, res, next) => {
-  const date = toString(moment().format());
+  const date = moment.tz('America/Vancouver').format();
   console.log(date);
   request(`http://api.jambase.com/events?zipCode=98034&radius=50&startDate=${date}&page=0&api_key=uazyeq8ba3c3vxa6uewvud2b`, (err, response, body) => {
     if (err) {
