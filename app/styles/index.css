@@ -87,7 +87,7 @@ div.rbc-day-bg:hover {
     vertical-align: middle;
 }
 .rbc-date-cell:hover {
-  color: #e05840;
+  /*color: #e05840;*/
   /*transition: all .2s ease-in-out;
   transform: scale(1.33);*/
 }
@@ -288,10 +288,9 @@ img {
 }
 
 #masonry-column-container {
-
     box-sizing: border-box;
     break-inside: avoid;
-    margin: 1.5em 0;
+    margin: 0;
     padding: 0;
     column-count: 6;
     column-fill: auto;
@@ -304,6 +303,7 @@ img {
     padding: 1em;
     margin: 0 0 1.5em;
     width: 100%;
+    flex-shrink: 1 0 0;
     box-sizing: border-box;
     box-shadow: 2px 2px 4px 0 #bbb;
 }
@@ -312,6 +312,88 @@ div#wrapper {
 
 }
 
-@media (min-width: 600px) and (max-width: 950px) {
-  /*html { background: red; }*/
+@media (min-width: 768px) and (max-width: 1046px) {
+  #masonry-column-container {
+      width: 150%;
+      box-sizing: border-box;
+      break-inside: avoid;
+      margin: 0;
+      padding: 0;
+      column-count: 6;
+      column-fill: auto;
+      column-gap: 0.5em;
+  }
+
+  /* LOGIN */
+  div.three.columns {
+    top:172.5px;
+    margin: 0 auto;
+    padding: 5% 0;
+    width: 33%;
+  }
+
+  div#login {
+    margin-left: 33%;
+  }
+  div#wrapper {
+    transform: translateY(3%);
+
+  }
+}
+@media (min-width: 550px) and (max-width: 767px) {
+  #masonry-column-container {
+      width: 200%;
+      box-sizing: border-box;
+      break-inside: avoid;
+      margin: 0;
+      padding: 0;
+      column-count: 6;
+      column-fill: auto;
+      column-gap: 0.5em;
+  }
+
+  /* LOGIN */
+  div.three.columns {
+    top:33%;
+    margin: 0 auto;
+    padding: 2 0 2 0;
+    width: 45%;
+  }
+
+  div#login {
+    margin-left: 27.5%;
+  }
+  div#wrapper {
+    transform: translateY(3%);
+
+  }
+}
+
+
+@media (min-width: 200px) and (max-width: 549px) {
+  /* POSTERS */
+  #masonry-column-container {
+      margin-left: 9px;
+      width: 300%;
+      column-count: 6;
+      column-gap: 1em;
+  }
+  /* LOGIN */
+  div.three.columns {
+    top:25%;
+    padding: 10%;
+    width: 50%;
+  }
+  div.twelve.columns {
+    padding: 0;
+    margin-bottom: 2%;
+  }
+
+  div#login {
+    margin-left: 28%;
+  }
+  div#wrapper {
+    transform: translateY(2.5%);
+  }
+
 }
