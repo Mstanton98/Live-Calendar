@@ -230,9 +230,8 @@ div.three.columns {
   margin: 0 auto;
   line-height: 100%;
 }
-
 div.four.columns.sign {
-  top: 12.5%;
+  top: 10.5%;
   opacity: 0.95;
   background-color: #fff;
   margin-top: -25%;
@@ -309,21 +308,24 @@ img {
 }
 div#wrapper {
   /*transform: translateY(4%);*/
-
 }
 
+/* MEDIA QUERIES */
 @media (min-width: 768px) and (max-width: 1046px) {
+  /* POSTERS */
   #masonry-column-container {
-      width: 150%;
-      box-sizing: border-box;
-      break-inside: avoid;
-      margin: 0;
-      padding: 0;
-      column-count: 6;
-      column-fill: auto;
-      column-gap: 0.5em;
+    width: 150%;
+    box-sizing: border-box;
+    break-inside: avoid;
+    margin: 0;
+    padding: 0;
+    column-count: 6;
+    column-fill: auto;
+    column-gap: 0.5em;
   }
-
+  div#wrapper {
+    transform: translateY(3%);
+  }
   /* LOGIN */
   div.three.columns {
     top:172.5px;
@@ -331,16 +333,30 @@ div#wrapper {
     padding: 5% 0;
     width: 33%;
   }
-
   div#login {
     margin-left: 33%;
   }
-  div#wrapper {
-    transform: translateY(3%);
-
+  /* SIGNUP */
+  div#signup {
+    postion: absolute;
+    margin: 0 auto;
+    margin-left: 39% !important;
+    height: 100%;
+    line-height: 100%;
+    width: 50%;
+  }
+  div.four.columns.sign {
+    top: 12.5%;
+    margin-top: -25%;
+    position: absolute;
+    padding-top: 15px;
+    margin: 0 auto;
+    line-height: 100%;
+    padding: 0;
   }
 }
 @media (min-width: 550px) and (max-width: 767px) {
+  /* Posters */
   #masonry-column-container {
       width: 200%;
       box-sizing: border-box;
@@ -351,7 +367,10 @@ div#wrapper {
       column-fill: auto;
       column-gap: 0.5em;
   }
+  div#wrapper {
+    transform: translateY(3%);
 
+  }
   /* LOGIN */
   div.three.columns {
     top:33%;
@@ -363,9 +382,25 @@ div#wrapper {
   div#login {
     margin-left: 27.5%;
   }
-  div#wrapper {
-    transform: translateY(3%);
-
+  /* SIGNUP */
+  div#signup {
+    postion: absolute;
+    margin: 0 auto;
+    height: 100%;
+    line-height: 100%;
+    width: 65%;
+  }
+  div.four.columns.sign {
+    margin-left: -7.5% !important;
+    padding: 4.5%;
+    top: 12.5%;
+    margin-top: -25%;
+    position: absolute;
+    padding-top: 15px;
+    margin: 0 auto;
+    line-height: 100%;
+    padding: 0;
+    width: 45%;
   }
 }
 
@@ -378,6 +413,10 @@ div#wrapper {
       column-count: 6;
       column-gap: 1em;
   }
+  div#wrapper {
+    transform: translateY(2.5%);
+  }
+
   /* LOGIN */
   div.three.columns {
     top:25%;
@@ -388,12 +427,25 @@ div#wrapper {
     padding: 0;
     margin-bottom: 2%;
   }
-
   div#login {
     margin-left: 28%;
   }
-  div#wrapper {
-    transform: translateY(2.5%);
+  /* SIGNUP */
+  div#signup {
+    postion: absolute;
+    width: 50%;
+  }
+  div.four.columns.sign {
+    margin-left: 20% !important;
+    top: 10%;
+    margin-top: -25%;
+    position: absolute;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    margin: 0 auto;
+    line-height: 100%;
+    padding: 7.5%;
+    width: 60%;
   }
 
 }
