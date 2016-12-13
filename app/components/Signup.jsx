@@ -3,13 +3,6 @@ import { white, red100, red200, red300, grey100, grey500, grey900 } from 'materi
 
 const styles = {
   signup: {
-    // position: 'relative',
-    // height: '50%',
-    // lineHeight: '50%',
-    // backgroundColor: red100,
-    // borderRadius: 10,
-    // margin: 'auto',
-    // color: red200
   },
   input: {
     padding: 10,
@@ -17,9 +10,6 @@ const styles = {
     margin: 'auto'
   },
   submit: {
-    // display: 'block',
-    // backgroundColor: red200,
-    // color: red300
   }
 };
 
