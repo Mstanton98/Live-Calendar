@@ -5,6 +5,8 @@ exports.seed = function(knex) {
     .then(() => {
       return knex('users').insert([{
         id: 1,
+        first_name: 'jk',
+        last_name: 'rowling',
         username: 'rowling',
         email: 'jkrowling@gmail.com',
         hashed_password: '$2a$12$C9AYYmcLVGYlGoO4vSZTPud9ArJwbGRsJ6TUsNULzR48z8fOnTXbS',//youreawizard
@@ -12,6 +14,8 @@ exports.seed = function(knex) {
         updated_at: new Date('2016-06-29 14:26:16 UTC')
       }, {
         id: 2,
+        first_name: 'michael',
+        last_name: 'stanton',
         username: 'mstanton98',
         email: 'mstanton98@gmail.com',
         hashed_password: '$2a$12$C9AYYmcLVGYlGoO4vSZTPud9ArJwbGRsJ6TUsNULzR48z8fOnTXbS',//youreawizard
