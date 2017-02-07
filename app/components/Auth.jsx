@@ -98,22 +98,21 @@ const Auth = React.createClass({
     let loginForm = null;
     let signup = null;
 
-    if (this.state.login) {
+    this.state.login ?
       loginForm = <Login
         open={this.state.open}
         open2={this.state.open2}
         login={this.userLogin}
         signupRender={this.signupRender}
       />
-    }
-    else {
+    :
       signup = <Signup
         open1={this.state.open1}
         open2={this.state.open2}
         signup={this.userSignup}
         loginRender={this.loginRender}
      />
-    }
+    
 
     return (
       <div id="overlay">
