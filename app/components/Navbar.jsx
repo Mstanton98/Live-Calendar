@@ -47,7 +47,9 @@ const Navbar = React.createClass({
         <IconMenu
           {...props}
           iconButtonElement={
-            <IconButton><MoreVertIcon /></IconButton>
+            <IconButton>
+              <MoreVertIcon />
+          </IconButton>
           }
           targetOrigin={{horizontal: 'right', vertical: 'top'}}
           anchorOrigin={{horizontal: 'right', vertical: 'top'}}

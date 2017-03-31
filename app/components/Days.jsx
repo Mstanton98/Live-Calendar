@@ -10,7 +10,6 @@ const Days = React.createClass({
 
       <div> <Card>
         <CardHeader
-          title="Today's Shows"
           actAsExpander={true}
           showExpandableButton={true}
         />

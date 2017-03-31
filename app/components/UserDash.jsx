@@ -58,8 +58,7 @@ const UserDash = React.createClass({
                   followUser={this.props.followUser}
                   userSearch={this.props.userSearch}
                 />
-                <MenuItem onTouchTap={this.handleClose}>Menu Item</MenuItem>
-                <MenuItem onTouchTap={this.handleClose}>Menu Item 2</MenuItem>
+              
               </Drawer>
             </div>
             {/* End Drawer / Sidebar */}

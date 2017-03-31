@@ -68,7 +68,7 @@ const Month = React.createClass({
 
         <div>
           <Dialog
-            title="Dialog With Actions"
+            title="Todays Events"
             modal={false}
             open={this.state.open}
             autoScrollBodyContent={true}

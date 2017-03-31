@@ -264,7 +264,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 // const PosterImage='./img/posters.png';
 var PosterImage1 = 'https://images.bigcartel.com/product_images/159878917/AmericanFootball_SongExploder_FinalScan_1200px.jpg?auto=format&fit=max&h=1000&w=1000';
 var PosterImage2 = 'https://images.bigcartel.com/product_images/189275951/NickelCreek_WDC_FinalScan_1200px.jpg?auto=format&fit=max&h=1000&w=1000';
-var PosterImage3 = 'http://furturtle.com/images/posters/ironandwine09.jpg';
+var PosterImage3 = 'http://411posters.com/wp-content/uploads/2013/08/grzeca-father-john-misty-chicago-il-2013.jpg';
 var PosterImage4 = 'http://images.bigcartel.com/product_images/178653131/MMJ_Houston2016.jpg?auto=format&fit=max&h=1000&w=1000';
 var PosterImage5 = 'https://images.bigcartel.com/product_images/169116565/Baths_FinalScan_800px.jpg?auto=format&fit=max&h=1000&w=1000';
 var PosterImage6 = 'http://images.bigcartel.com/product_images/186193982/Screen_Shot_2016-09-06_at_3.02.46_PM.png?auto=format&fit=max&h=1000&w=1000';
@@ -274,9 +274,9 @@ var PosterImage9 = 'http://images.bigcartel.com/product_images/176562674/JohnPri
 var PosterImage10 = 'http://images.bigcartel.com/product_images/148764601/OCMS_Fall-2014.jpg?auto=format&fit=max&h=1000&w=1000';
 var PosterImage11 = 'https://mir-s3-cdn-cf.behance.net/project_modules/disp/6d2fa72033378.560118f8d8284.jpg';
 var PosterImage12 = 'http://images.bigcartel.com/product_images/157924645/Tame-Impala_foil.jpg?auto=format&fit=max&h=1000&w=1000';
-var PosterImage13 = 'http://images.bigcartel.com/product_images/188942645/MMW_25yrs_Cleveland.jpg?auto=format&fit=max&h=1000&w=1000';
+var PosterImage13 = 'http://thestuff.nakatomiinc.com/wp-content/uploads/2012/07/The-Mountain-Goats-Poster-2-Nakatomi-700x933.jpg';
 var PosterImage14 = 'http://3.bp.blogspot.com/-NXGS0UEpQxQ/UQrxySOde6I/AAAAAAAAA1c/PrnqZI1xpnE/s1600/LumineersTerminal5BuckScreenShot.png';
-var PosterImage15 = 'http://images.bigcartel.com/product_images/187628906/MMJ_Asheville2016.jpg?auto=format&fit=max&h=1000&w=1000';
+var PosterImage15 = 'https://s-media-cache-ak0.pinimg.com/originals/91/87/bb/9187bb0c80fd88cc0034d826cdc17d44.jpg';
 var PosterImage16 = 'https://images.bigcartel.com/product_images/189275426/JBT_RedRocks_FinalScan_1500px.jpg?auto=format&fit=max&h=1000&w=1000';
 var PosterImage17 = 'https://images.bigcartel.com/product_images/189242096/DMB_WPB_N2_FinalScan_1500px.jpg?auto=format&fit=max&h=1000&w=1000';
 var PosterImage18 = 'https://images.bigcartel.com/product_images/128253432/GrandPointNorth_FinalScan_1200px.jpg?auto=format&fit=max&h=1000&w=1000';
@@ -668,7 +668,6 @@ var Days = _react2.default.createClass({
         _Card.Card,
         null,
         _react2.default.createElement(_Card.CardHeader, {
-          title: 'Today\'s Shows',
           actAsExpander: true,
           showExpandableButton: true
         }),
@@ -1236,7 +1235,7 @@ var Month = _react2.default.createClass({
         _react2.default.createElement(
           _Dialog2.default,
           {
-            title: 'Dialog With Actions',
+            title: 'Todays Events',
             modal: false,
             open: this.state.open,
             autoScrollBodyContent: true,
@@ -2013,17 +2012,7 @@ var UserDash = _react2.default.createClass({
               getUserName: this.props.getUserName,
               followUser: this.props.followUser,
               userSearch: this.props.userSearch
-            }),
-            _react2.default.createElement(
-              _MenuItem2.default,
-              { onTouchTap: this.handleClose },
-              'Menu Item'
-            ),
-            _react2.default.createElement(
-              _MenuItem2.default,
-              { onTouchTap: this.handleClose },
-              'Menu Item 2'
-            )
+            })
           )
         ),
         _react2.default.createElement(
